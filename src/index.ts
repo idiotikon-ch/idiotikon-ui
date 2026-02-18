@@ -1,0 +1,1 @@
+export { createIdiotikonVuetify } from './vuetify';
