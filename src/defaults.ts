@@ -1,4 +1,5 @@
 export const defaults = {
-  // VCard: { rounded: 'lg' },
-  // VBtn: { variant: 'flat' }
+  VBtn: {
+    class: 'idiotikon-btn'
+  }
 }

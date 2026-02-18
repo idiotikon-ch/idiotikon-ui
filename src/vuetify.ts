@@ -10,7 +10,7 @@ export function createIdiotikonVuetify(themeConfig: {
 }) {
   return createVuetify({
     theme: themeConfig,
-    blueprint: md2,
+    // blueprint: md2,
     icons: {
       defaultSet: 'mdi',
       aliases,
