@@ -1,5 +1,7 @@
-// /* Your flagship global overrides go here. */
-
 .idiotikon-btn .v-btn__content {
+  color: rgb(var(--v-theme-linkText));
+}
+
+.v-main a {
   color: rgb(var(--v-theme-linkText));
 }
