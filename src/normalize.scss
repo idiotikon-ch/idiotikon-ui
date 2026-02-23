@@ -44,7 +44,7 @@
 .v-card.focus .v-card-subtitle:first-of-type,
 .v-card.sidebar > .v-card-title,
 .v-card.sidebar .v-card-title:first-of-type {
-  padding: 0 0 2rem 0;
+  padding: 0 0 0.75rem 0;
   hyphens: none;
 }
 
@@ -52,10 +52,6 @@
 .v-card.focus > .v-card-text,
 .v-card.sidebar > .v-card-text {
   padding-left: 0;
-}
-
-.v-card.sidebar .v-card-title {
-  padding-bottom: 0.75rem;
 }
 
 .v-card.sidebar .v-img {
@@ -82,4 +78,8 @@
 .v-card.white-border-tile.teaser {
   padding: 1rem;
   margin-bottom: 1.5rem;
+}
+
+p {
+  padding-bottom: 0.5rem;
 }
