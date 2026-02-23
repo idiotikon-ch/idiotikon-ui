@@ -1,7 +1,85 @@
-.idiotikon-btn .v-btn__content {
+.idiotikon-btn:not([class*="bg-"]):not([class*="text-"]) .v-btn__content {
   color: rgb(var(--v-theme-linkText));
 }
 
 .v-main a {
   color: rgb(var(--v-theme-linkText));
+}
+
+/* Container padding reset */
+.v-main .v-container {
+  padding: 0;
+}
+
+/* Opinionated Card Styling */
+
+/* Subtitle color override */
+.v-card-subtitle,
+.v-card-subtitle p,
+.v-card-subtitle a {
+  color: rgb(var(--v-theme-subtitleText));
+  opacity: 1;
+}
+
+/* Specific text color for focus and sidebar cards */
+.v-card.focus .v-card-text,
+.v-card.sidebar .v-card-text,
+.v-card.focus p,
+.v-card.sidebar p,
+.v-container.mixed-tile-text .v-card-text {
+  color: #454545;
+}
+
+/* Padding and margin for focus and sidebar cards */
+.v-card.sidebar,
+.v-card.focus {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+}
+
+/* Spacing for titles in focus and sidebar cards */
+.v-card.focus > .v-card-title,
+.v-card.focus .v-card-title:first-of-type,
+.v-card.focus > .v-card-subtitle,
+.v-card.focus .v-card-subtitle:first-of-type,
+.v-card.sidebar > .v-card-title,
+.v-card.sidebar .v-card-title:first-of-type {
+  padding: 0 0 2rem 0;
+  hyphens: none;
+}
+
+/* Fine-tune padding */
+.v-card.focus > .v-card-text,
+.v-card.sidebar > .v-card-text {
+  padding-left: 0;
+}
+
+.v-card.sidebar .v-card-title {
+  padding-bottom: 0.75rem;
+}
+
+.v-card.sidebar .v-img {
+  margin: 0.75rem 0;
+}
+
+/* Nested card adjustments */
+.v-card.focus .v-card .v-card-title {
+  padding-bottom: 6px;
+}
+.v-card.focus .v-card .v-card-subtitle {
+  padding-bottom: 0;
+}
+.v-card.focus .v-card .v-card-text {
+  padding-top: 6px;
+}
+
+/* List item adjustments */
+.focus .v-list-item {
+  padding: 1rem 0;
+}
+
+/* Teaser tile styling */
+.v-card.white-border-tile.teaser {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
 }
