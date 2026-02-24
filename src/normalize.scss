@@ -1,4 +1,11 @@
 /* Typography baseline */
+* {
+  font-family: 'Nossikon', sans-serif;
+}
+html {
+  font-size: 1rem;
+}
+
 p,
 div {
   line-height: 1.5rem;
