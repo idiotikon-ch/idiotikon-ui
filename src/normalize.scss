@@ -2,12 +2,13 @@
 * {
   font-family: 'Nossikon', sans-serif;
 }
+
 html {
   font-size: 1rem;
 }
 
-p,
-div {
+/* Base line-height for body text (not headings) */
+p {
   line-height: 1.5rem;
 }
 
@@ -147,4 +148,16 @@ div {
 
 p {
   padding-bottom: 0.5rem;
+}
+
+.cms-content-wrapper h2 {
+font-size: 1.25rem;
+color: rgba(0, 0, 0, 0.87);
+font-weight: 500;
+}
+
+.cms-content-wrapper h3 {
+font-size: 1rem;
+color: rgba(0, 0, 0, 0.87);
+font-weight: 500;
 }
