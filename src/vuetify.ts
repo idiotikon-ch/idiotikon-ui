@@ -7,9 +7,13 @@ import { md2 } from 'vuetify/blueprints'
 export function createIdiotikonVuetify(themeConfig: {
   defaultTheme: string
   themes: { [key: string]: ThemeDefinition }
+  layers?: boolean
 }) {
   return createVuetify({
-    theme: themeConfig,
+    theme: {
+      ...themeConfig,
+      layers: themeConfig.layers ?? false,
+    },
     // blueprint: md2,
     icons: {
       defaultSet: 'mdi',

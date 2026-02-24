@@ -1,3 +1,8 @@
+/* Typography baseline */
+p, div {
+  line-height: 1.5rem;
+}
+
 .idiotikon-btn:not([class*="bg-"]):not([class*="text-"]) .v-btn__content {
   color: rgb(var(--v-theme-linkText));
 }
@@ -21,8 +26,8 @@
   }
 
   .v-card-item {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
   }
 }
 
