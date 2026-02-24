@@ -11,7 +11,36 @@
   padding: 0;
 }
 
+/* Card component resets - override Vuetify defaults */
+.v-application {
+  .v-card,
+  .v-card-text,
+  .v-card-subtitle {
+    margin: 0;
+    padding: 0;
+  }
+
+  .v-card-item {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
 /* Opinionated Card Styling */
+
+/* Base card title spacing */
+.v-card-title {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* Responsive card text and subtitle sizing */
+@media (min-width: 600px) {
+  .v-card-text,
+  .v-card-subtitle {
+    font-size: 1rem;
+  }
+}
 
 /* Subtitle color override */
 .v-card-subtitle,
@@ -44,8 +73,13 @@
 .v-card.focus .v-card-subtitle:first-of-type,
 .v-card.sidebar > .v-card-title,
 .v-card.sidebar .v-card-title:first-of-type {
-  padding: 0 0 0.75rem 0;
+  padding: 0 0 2rem 0;
   hyphens: none;
+}
+
+/* Sidebar-specific title spacing override */
+.v-card.sidebar .v-card-title {
+  padding-bottom: 0.75rem;
 }
 
 /* Fine-tune padding */
