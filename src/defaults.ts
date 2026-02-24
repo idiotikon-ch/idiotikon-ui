@@ -5,4 +5,7 @@ export const defaults = {
   VContainer: {
     padding: 0,
   },
+  VCardTitle: {
+    class: 'text-wrap',
+  }
 }
