@@ -3,12 +3,16 @@
   font-family: 'Nossikon', sans-serif;
 }
 
+code {
+  font-family: 'Source Code Pro', monospace;
+}
+
 html {
   font-size: 1rem;
 }
 
 /* Base line-height for body text (not headings) */
-p {
+p, .contact-text {
   line-height: 1.5rem;
 }
 
