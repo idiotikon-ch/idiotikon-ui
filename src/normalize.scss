@@ -11,8 +11,8 @@ html {
   font-size: 1rem;
 }
 
-/* Base line-height for body text (not headings) */
-p, .contact-text {
+/* Base line-height for body text etc (not every div) */
+p, .contact-text, ul, ol, details {
   line-height: 1.5rem;
 }
 
