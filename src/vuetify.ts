@@ -4,11 +4,14 @@ import { defaults } from './defaults'
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 import { md2 } from 'vuetify/blueprints'
 
-export function createIdiotikonVuetify(themeConfig: {
-  defaultTheme: string
-  themes: { [key: string]: ThemeDefinition }
-  layers?: boolean
-}) {
+export function createIdiotikonVuetify(
+  themeConfig: {
+    defaultTheme: string
+    themes: { [key: string]: ThemeDefinition }
+    layers?: boolean
+  },
+  ssr = false
+) {
   return createVuetify({
     theme: {
       ...themeConfig,
@@ -22,7 +25,7 @@ export function createIdiotikonVuetify(themeConfig: {
         mdi,
       },
     },
-    ssr: false,
+    ssr,
     defaults
   })
 }
