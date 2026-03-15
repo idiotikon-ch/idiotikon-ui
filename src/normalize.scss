@@ -166,14 +166,51 @@ p {
   padding-bottom: 0.5rem;
 }
 
-.cms-content-wrapper h2 {
-font-size: 1.25rem;
-color: rgba(0, 0, 0, 0.87);
-font-weight: 500;
-}
+/* CMS Content Wrapper Styling */
+.cms-content-wrapper {
+  h2 {
+    font-size: 1.25rem;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 500;
+  }
 
-.cms-content-wrapper h3 {
-font-size: 1rem;
-color: rgba(0, 0, 0, 0.87);
-font-weight: 500;
+  h3 {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 500;
+  }
+
+  ul,
+  ol {
+    padding-left: 2rem;
+  }
+
+  table {
+    td,
+    th {
+      vertical-align: top;
+      padding-bottom: 0.5rem;
+    }
+
+    th {
+      text-align: left;
+    }
+  }
+
+  .two-column-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+  }
+
+  .column {
+    flex: 1 1 100%;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .column {
+      flex: 1 1 50%;
+    }
+  }
 }
