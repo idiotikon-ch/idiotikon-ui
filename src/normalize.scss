@@ -126,6 +126,18 @@ p, .contact-text, ul, ol, details {
   padding: 1rem 0;
 }
 
+
+// nav list item adjustments
+.v-list-group__items .v-list-item {
+    --indent-padding: 56px; /* 72px total: 16px base + 56px */
+    background-color: #e4e4e452;
+}
+
+.v-list-group__items .v-list-group__items .v-list-item {
+    --indent-padding: 69px; /* 85px total: 16px base + 69px */
+    background-color: #e4e4e4f6;
+}
+
 .v-card.white-border-tile .v-card-title,
 .v-card.white-border-tile .v-card-subtitle,
 .v-card.white-border-tile .v-card-text {
