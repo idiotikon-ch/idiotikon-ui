@@ -138,6 +138,10 @@ p, .contact-text, ul, ol, details {
     background-color: #e4e4e4f6;
 }
 
+.v-list-item.active_nav_item {
+  background-color: #e4e4e4f6;
+}
+
 .v-card.white-border-tile .v-card-title,
 .v-card.white-border-tile .v-card-subtitle,
 .v-card.white-border-tile .v-card-text {
@@ -213,4 +217,28 @@ p {
       flex: 1 1 50%;
     }
   }
+}
+
+
+.footer a {
+  color: #c4ced0;
+}
+
+.v-card .read-more a {
+  color: rgb(var(--v-theme-primary));
+}
+
+/* Style links in card text content */
+.v-card-text a {
+  color: rgb(var(--v-theme-primary));
+}
+
+/* Style links within list item titles (e.g., literature sources with HTML content) */
+.v-list-item-title a {
+  color: rgb(var(--v-theme-primary));
+}
+
+/* Style links in plain lists within cards (not v-list navigation) */
+.v-card ul:not(.v-list) li a {
+  color: rgb(var(--v-theme-primary));
 }
