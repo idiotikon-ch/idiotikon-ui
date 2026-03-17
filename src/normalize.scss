@@ -37,13 +37,13 @@ p, .contact-text, ul, ol, details {
   padding-bottom: 5px;
 }
 
-/* Responsive card text and subtitle sizing */
-@media (min-width: 600px) {
-  .v-card-text,
-  .v-card-subtitle {
-    font-size: 1rem;
-  }
-}
+// /* Responsive card text and subtitle sizing */
+// @media (min-width: 600px) {
+//   .v-card-text,
+//   .v-card-subtitle {
+//     font-size: 1rem;
+//   }
+// }
 
 /* Subtitle color override */
 .v-card-subtitle,
@@ -72,13 +72,10 @@ p, .contact-text, ul, ol, details {
   }
 
   /* Card text and paragraphs */
-  > .v-card-text {
+  .v-card-text {
     padding-left: 0;
     color: #454545;
-  }
-
-  .v-card-text {
-    color: #454545;
+    font-size: 1rem;
   }
 
   p {
@@ -129,13 +126,10 @@ p, .contact-text, ul, ol, details {
   }
 
   /* Card text */
-  > .v-card-text {
+  .v-card-text {
     padding-left: 0;
     color: #454545;
-  }
-
-  .v-card-text {
-    color: #454545;
+    font-size: 1rem;
   }
 
   p {
