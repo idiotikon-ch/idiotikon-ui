@@ -68,62 +68,104 @@ p, .contact-text, ul, ol, details {
   opacity: 1;
 }
 
-/* Specific text color for focus and sidebar cards */
-.v-card.focus .v-card-text,
-.v-card.sidebar .v-card-text,
-.v-card.focus p,
-.v-card.sidebar p,
-.v-container.mixed-tile-text .v-card-text {
-  color: #454545;
-}
-
-/* Padding and margin for focus and sidebar cards */
-.v-card.sidebar,
+/* Focus card variant - self-contained styling */
 .v-card.focus {
   margin-bottom: 1.5rem;
   padding: 1.5rem;
+
+  /* Direct child title and subtitle */
+  > .v-card-title,
+  .v-card-title:first-of-type {
+    padding: 0 0 2rem 0;
+    hyphens: none;
+  }
+
+  > .v-card-subtitle,
+  .v-card-subtitle:first-of-type {
+    padding: 0 0 2rem 0;
+    hyphens: none;
+  }
+
+  /* Card text and paragraphs */
+  > .v-card-text {
+    padding-left: 0;
+    color: #454545;
+  }
+
+  .v-card-text {
+    color: #454545;
+  }
+
+  p {
+    color: #454545;
+  }
+
+  /* Nested cards within focus */
+  .v-card {
+    .v-card-title {
+      padding-bottom: 6px;
+    }
+
+    .v-card-subtitle {
+      padding-bottom: 0;
+    }
+
+    .v-card-text {
+      padding-top: 6px;
+    }
+  }
+
+  /* List items within focus */
+  .v-list-item {
+    padding: 1rem 0;
+  }
 }
 
-/* Spacing for titles in focus and sidebar cards */
-.v-card.focus > .v-card-title,
-.v-card.focus .v-card-title:first-of-type,
-.v-card.focus > .v-card-subtitle,
-.v-card.focus .v-card-subtitle:first-of-type,
-.v-card.sidebar > .v-card-title,
-.v-card.sidebar .v-card-title:first-of-type {
-  padding: 0 0 2rem 0;
-  hyphens: none;
+/* Sidebar card variant - self-contained styling */
+.v-card.sidebar {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+
+  /* Title and subtitle */
+  > .v-card-title,
+  .v-card-title:first-of-type {
+    padding: 0 0 2rem 0;
+    hyphens: none;
+  }
+
+  .v-card-title {
+    padding-bottom: 0.75rem;
+  }
+
+  > .v-card-subtitle,
+  .v-card-subtitle:first-of-type {
+    padding: 0 0 2rem 0;
+    hyphens: none;
+  }
+
+  /* Card text */
+  > .v-card-text {
+    padding-left: 0;
+    color: #454545;
+  }
+
+  .v-card-text {
+    color: #454545;
+  }
+
+  p {
+    color: #454545;
+  }
+
+  /* Images */
+  .v-img {
+    margin: 0.75rem 0;
+  }
 }
 
-/* Sidebar-specific title spacing override */
-.v-card.sidebar .v-card-title {
-  padding-bottom: 0.75rem;
-}
-
-/* Fine-tune padding */
-.v-card.focus > .v-card-text,
-.v-card.sidebar > .v-card-text {
-  padding-left: 0;
-}
-
-.v-card.sidebar .v-img {
-  margin: 0.75rem 0;
-}
-
-/* Nested card adjustments */
-.v-card.focus .v-card .v-card-title {
-  padding-bottom: 6px;
-}
-.v-card.focus .v-card .v-card-subtitle {
-  padding-bottom: 0;
-}
-.v-card.focus .v-card .v-card-text {
-  padding-top: 6px;
-}
-
-/* List item adjustments */
-.focus .v-list-item {
-  padding: 1rem 0;
+/* Mixed tile text container */
+.v-container.mixed-tile-text .v-card-text {
+  color: #454545;
 }
 
 
@@ -142,28 +184,33 @@ p, .contact-text, ul, ol, details {
   background-color: #e4e4e4f6;
 }
 
-.v-card.white-border-tile .v-card-title,
-.v-card.white-border-tile .v-card-subtitle,
-.v-card.white-border-tile .v-card-text {
-  padding: 0;
-  margin: 0;
-}
-
-.v-card.white-border-tile .v-card-title {
-  padding-bottom: 0.25rem;
-}
-.v-card.white-border-tile .v-card-subtitle {
-  padding-bottom: 0.5rem;
-}
-
+/* White border tile card variant - self-contained styling */
 .v-card.white-border-tile {
   padding: 1.25rem;
   margin-bottom: 1.5rem;
-}
 
-.v-card.white-border-tile.teaser {
-  padding: 1rem;
-  margin-bottom: 1.5rem;
+  .v-card-title {
+    padding: 0;
+    margin: 0;
+    padding-bottom: 0.25rem;
+  }
+
+  .v-card-subtitle {
+    padding: 0;
+    margin: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .v-card-text {
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Teaser variant */
+  &.teaser {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 p {
