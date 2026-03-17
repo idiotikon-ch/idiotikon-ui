@@ -29,21 +29,6 @@ p, .contact-text, ul, ol, details {
   padding: 0;
 }
 
-/* Card component resets - override Vuetify defaults */
-.v-application {
-  .v-card,
-  .v-card-text,
-  .v-card-subtitle {
-    margin: 0;
-    padding: 0;
-  }
-
-  .v-card-item {
-    margin: 0;
-    padding: 0;
-  }
-}
-
 /* Opinionated Card Styling */
 
 /* Base card title spacing */
