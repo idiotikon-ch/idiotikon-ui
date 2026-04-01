@@ -19,7 +19,7 @@
   ],
   "peerDependencies": {
     "vue": "^3",
-    "vuetify": "^3"
+    "vuetify": "^4.0.4"
   },
   "devDependencies": {
     "@types/node": "^25.2.3",

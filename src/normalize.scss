@@ -56,11 +56,11 @@
 // /* Nested card spacing - visual hierarchy */
 .v-card .v-card {
   margin: 1.5rem 0.5rem;
-  
+
   &:first-child {
     margin-top: 0;
   }
-  
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -83,7 +83,7 @@
   }
 
   /* Card text and paragraphs */
-  .v-card-text {    
+  .v-card-text {
     color: #454545;
     font-size: 1rem;
   }
@@ -159,7 +159,6 @@
 // .v-container.mixed-tile-text .v-card-text {
 //   color: #454545;
 // }
-
 
 // // nav list item adjustments
 // .v-list-group__items .v-list-item {
@@ -258,26 +257,11 @@
 //   }
 // }
 
-
 .footer a {
   color: #c4ced0;
 }
 
-<<<<<<< HEAD
-// .v-card-actions {
-//   padding-top: 0rem;
-//   padding-left: 1rem;
-// }
-
 .read-more {
-  color: rgb(var(--v-theme-primary));
-  text-decoration: underline;
-}
-
-.v-card-actions a, .v-card-actions .v-btn {
-=======
-.read-more {
->>>>>>> c4f051a (read-more)
   color: rgb(var(--v-theme-primary));
 }
 
