@@ -1,25 +1,3 @@
-// /* Typography baseline */
-// * {
-//   font-family: 'Nossikon', sans-serif;
-// }
-
-// code {
-//   font-family: 'Source Code Pro', monospace;
-// }
-
-// html {
-//   font-size: 1rem;
-// }
-
-// /* Base line-height for body text etc (not every div) */
-// p, .contact-text, ul, ol, details {
-//   line-height: 1.5rem;
-// }
-
-// .idiotikon-btn:not([class*="bg-"]):not([class*="text-"]) .v-btn__content {
-//   color: rgb(var(--v-theme-linkText));
-// }
-
 .v-card-title a {
   color: rgb(var(--v-theme-linkText));
 }
@@ -29,31 +7,7 @@
   padding: 0;
 }
 
-// /* Opinionated Card Styling */
-
-// /* Base card title spacing */
-// .v-card-title {
-//   // padding-top: 5px;
-//   // padding-bottom: 5px;
-// }
-
-// // /* Responsive card text and subtitle sizing */
-// // @media (min-width: 600px) {
-// //   .v-card-text,
-// //   .v-card-subtitle {
-// //     font-size: 1rem;
-// //   }
-// // }
-
-// /* Subtitle color override */
-// .v-card-subtitle,
-// .v-card-subtitle p,
-// .v-card-subtitle a {
-//   color: rgb(var(--v-theme-subtitleText));
-//   opacity: 1;
-// }
-
-// /* Nested card spacing - visual hierarchy */
+/* Nested card spacing - visual hierarchy */
 .v-card .v-card {
   margin: 1.5rem 0.5rem;
 
@@ -66,7 +20,7 @@
   }
 }
 
-// /* Focus card variant - self-contained styling */
+/* Focus card variant - self-contained styling */
 .v-card.focus {
   /* Direct child title and subtitle - h3 size */
   > .v-card-title,
@@ -116,146 +70,9 @@
   }
 }
 
-// /* Sidebar card variant - self-contained styling */
-// .v-card.sidebar {
-//   margin-bottom: 1.5rem;
-//   padding: 1.5rem;
-
-//   /* Title and subtitle */
-//   > .v-card-title,
-//   .v-card-title:first-of-type {
-//     padding: 0 0 2rem 0;
-//     hyphens: none;
-//   }
-
-//   .v-card-title {
-//     padding-bottom: 0.75rem;
-//   }
-
-//   > .v-card-subtitle,
-//   .v-card-subtitle:first-of-type {
-//     padding: 0 0 2rem 0;
-//     hyphens: none;
-//   }
-
-//   /* Card text */
-//   .v-card-text {
-//     padding-left: 0;
-//     color: #454545;
-//     font-size: 1rem;
-//   }
-
-//   p {
-//     color: #454545;
-//   }
-
-//   /* Images */
-//   .v-img {
-//     margin: 0.75rem 0;
-//   }
-// }
-
-// /* Mixed tile text container */
-// .v-container.mixed-tile-text .v-card-text {
-//   color: #454545;
-// }
-
-// // nav list item adjustments
-// .v-list-group__items .v-list-item {
-//     --indent-padding: 56px; /* 72px total: 16px base + 56px */
-//     background-color: #e4e4e452;
-// }
-
-// .v-list-group__items .v-list-group__items .v-list-item {
-//     --indent-padding: 69px; /* 85px total: 16px base + 69px */
-//     background-color: #e4e4e4f6;
-// }
-
 .v-list-item.active_nav_item {
   background-color: #b7b7b7;
 }
-
-// /* White border tile card variant - self-contained styling */
-// .v-card.white-border-tile {
-//   padding: 1.25rem;
-//   margin-bottom: 1.5rem;
-
-//   .v-card-title {
-//     padding: 0;
-//     margin: 0;
-//     padding-bottom: 0.25rem;
-//   }
-
-//   .v-card-subtitle {
-//     padding: 0;
-//     margin: 0;
-//     padding-bottom: 0.5rem;
-//   }
-
-//   .v-card-text {
-//     padding: 0;
-//     margin: 0;
-//   }
-
-//   /* Teaser variant */
-//   &.teaser {
-//     padding: 1rem;
-//     margin-bottom: 1.5rem;
-//   }
-// }
-
-// p {
-//   padding-bottom: 0.5rem;
-// }
-
-// /* CMS Content Wrapper Styling */
-// .cms-content-wrapper {
-//   h2 {
-//     font-size: 1.25rem;
-//     color: rgba(0, 0, 0, 0.87);
-//     font-weight: 500;
-//   }
-
-//   h3 {
-//     font-size: 1rem;
-//     color: rgba(0, 0, 0, 0.87);
-//     font-weight: 500;
-//   }
-
-//   ul,
-//   ol {
-//     padding-left: 2rem;
-//   }
-
-//   table {
-//     td,
-//     th {
-//       vertical-align: top;
-//       padding-bottom: 0.5rem;
-//     }
-
-//     th {
-//       text-align: left;
-//     }
-//   }
-
-//   .two-column-grid {
-//     display: flex;
-//     flex-wrap: wrap;
-//     margin: 0 -1rem;
-//   }
-
-//   .column {
-//     flex: 1 1 100%;
-//     padding: 0 1rem;
-//   }
-
-//   @media (min-width: 768px) {
-//     .column {
-//       flex: 1 1 50%;
-//     }
-//   }
-// }
 
 .footer a {
   color: #c4ced0;
@@ -269,13 +86,3 @@
 .v-card-text a {
   color: rgb(var(--v-theme-primary));
 }
-
-// /* Style links within list item titles (e.g., literature sources with HTML content) */
-// .v-list-item-title a {
-//   color: rgb(var(--v-theme-primary));
-// }
-
-// /* Style links in plain lists within cards (not v-list navigation) */
-// .v-card ul:not(.v-list) li a {
-//   color: rgb(var(--v-theme-primary));
-// }
