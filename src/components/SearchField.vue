@@ -1,5 +1,5 @@
 <template>
-  <v-form @submit.prevent="handleSearch" :style="{ maxWidth: maxWidth }">
+  <v-form @submit.prevent="handleSearch">
     <v-text-field 
       v-model="internalQuery" 
       :placeholder="placeholder" 
@@ -31,18 +31,9 @@ const props = defineProps({
     type: String,
     default: mdiMagnify
   },
-  bgColor: {
-    type: String,
-    default: 'white'
-  },
-  variant: {
-    type: String,
-    default: 'solo'
-  },
-  density: {
-    type: String,
-    default: 'compact'
-  },
+  bgColor: String,
+  variant: String,
+  density: String,
   clearable: {
     type: Boolean,
     default: true
@@ -50,10 +41,6 @@ const props = defineProps({
   autofocus: {
     type: Boolean,
     default: false
-  },
-  maxWidth: {
-    type: String,
-    default: '100%'
   }
 })
 

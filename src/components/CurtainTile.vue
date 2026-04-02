@@ -1,7 +1,6 @@
 <template>
   <v-hover v-slot="{ isHovering, props: hoverProps }">
     <v-card 
-      class="curtain-tile" 
       v-bind="hoverProps"
       :height="height"
       @click="handleClick"
@@ -9,11 +8,11 @@
       <v-img 
         cover 
         :src="imgUrl" 
-        class="h-100" 
+        height="100%"
         :gradient="gradient"
       >
         <div 
-          class="curtain-tile-content text-wrap h-100" 
+          class="curtain-content d-flex flex-column justify-center pa-5 text-white h-100"
           :class="isActive(isHovering) ? 'bg-primary' : ''" 
           :style="{
             transform: isActive(isHovering) ? '' : 'translateY(45%)',
@@ -21,8 +20,17 @@
           }"
         >
           <div class="text-center text-h5 font-weight-bold" v-html="title" />
-          <div v-if="content" class="text-body-2" :style="{ opacity: isActive(isHovering) ? 1 : 0 }" v-html="content" />
-          <div v-if="actionText" class="font-weight-bold" style="font-size: 0.875rem" v-html="actionText" />
+          <div 
+            v-if="content" 
+            class="text-body-2" 
+            :style="{ opacity: isActive(isHovering) ? 1 : 0 }" 
+            v-html="content" 
+          />
+          <div 
+            v-if="actionText" 
+            class="text-caption font-weight-bold" 
+            v-html="actionText" 
+          />
         </div>
       </v-img>
     </v-card>
@@ -30,8 +38,6 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-
 const props = defineProps<{
   imgUrl: string
   title: string
@@ -61,16 +67,7 @@ export default {
 </script>
 
 <style scoped>
-.curtain-tile {
-  display: flex;
-  width: 100%;
-}
-
-.curtain-tile-content {
-  color: white;
-  padding: 1.25rem;
-  padding-top: 1.25rem;
-  justify-content: center;
+.curtain-content {
   transition: all .5s ease;
 }
 </style>

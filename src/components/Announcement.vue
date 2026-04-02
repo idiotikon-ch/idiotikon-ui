@@ -7,10 +7,7 @@
       </v-btn>
     </v-card-actions>
     
-    <v-card-title 
-      class="text-wrap"
-      :class="detailView ? 'text-h3' : 'text-h5'"
-    >
+    <v-card-title :class="detailView ? 'text-h3' : 'text-h5'">
       <a v-if="url" :href="url" @click.prevent="handleTitleClick">
         {{ title }}
       </a>
@@ -21,7 +18,7 @@
       {{ date }}
     </v-card-subtitle>
     
-    <v-row no-gutters>
+    <v-row>
       <v-col :cols="imgUrl ? 12 : 12" :sm="imgUrl ? 6 : 12" :md="imgUrl ? 8 : 12">
         <v-card-text>
           <slot name="content">
@@ -42,7 +39,7 @@
     :link="!!url"
     @click="handleCardClick"
   >
-    <v-card-title class="text-wrap text-h5">
+    <v-card-title class="text-h5">
       {{ title }}
     </v-card-title>
     
@@ -136,12 +133,4 @@ export default {
 </script>
 
 <style scoped>
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
 </style>
