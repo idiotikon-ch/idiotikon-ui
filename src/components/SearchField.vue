@@ -31,7 +31,10 @@ const props = defineProps({
     type: String,
     default: mdiMagnify
   },
-  bgColor: String,
+  bgColor: {
+    type: String,
+    default: 'white'
+  },
   variant: String,
   density: String,
   clearable: {
