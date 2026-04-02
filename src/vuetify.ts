@@ -1,5 +1,4 @@
 import { createVuetify, ThemeDefinition } from 'vuetify'
-import './normalize.scss'
 import { defaults } from './defaults'
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 import { md2 } from 'vuetify/blueprints'
