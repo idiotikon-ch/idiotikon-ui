@@ -2,22 +2,14 @@
   <v-tooltip :model-value="showTooltip" :location="tooltipLocation">
     {{ tooltipText }}
     <template #activator="{ props }">
-      <v-btn
-        v-show="visible"
-        @click="scrollToTop"
-        :icon="icon"
-        v-bind="props"
-        :density="density"
-        :color="color"
-        :style="buttonStyles"
-        style="z-index: 1; position: fixed"
-      />
+      <v-btn v-show="visible" @click="scrollToTop" :icon="icon" v-bind="props" :density="density" :color="color"
+        :style="buttonStyles" style="z-index: 1; position: fixed" />
     </template>
   </v-tooltip>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { mdiChevronUp } from '@mdi/js'
 
 const props = defineProps({
@@ -75,7 +67,20 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-// Export method to be called from parent's scroll handler
+function handleScroll() {
+  visible.value = window.scrollY >= props.threshold
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+  handleScroll() // Check initial state
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+
+// Export method to be called from parent's scroll handler (if needed)
 function updateVisibility(scrollTop: number) {
   visible.value = scrollTop >= props.threshold
 }
