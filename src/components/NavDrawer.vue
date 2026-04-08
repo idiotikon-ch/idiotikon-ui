@@ -6,7 +6,7 @@
     :location="location"
     @update:model-value="$emit('update:modelValue', $event)"
   >
-    <v-list v-model:opened="openedGroups">
+    <v-list v-model:opened="openedGroups" class="pt-0">
       <NavItems
         v-for="item in items"
         :key="item.id || item.title"

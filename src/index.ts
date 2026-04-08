@@ -7,3 +7,4 @@ export { default as NavItems } from './components/NavItems.vue';
 export { default as ContactInfo } from './components/ContactInfo.vue';
 export { default as SocialLinks } from './components/SocialLinks.vue';
 export { default as Footer } from './components/Footer.vue';
+export { default as ScrollToTop } from './components/ScrollToTop.vue';
