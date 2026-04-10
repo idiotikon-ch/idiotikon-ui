@@ -1,7 +1,7 @@
 import { createVuetify, ThemeDefinition } from 'vuetify'
 import { defaults } from './defaults'
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
-import { md2 } from 'vuetify/blueprints'
+// import { md1, md2, md3 } from 'vuetify/blueprints'
 
 export function createIdiotikonVuetify(
   themeConfig: {
@@ -16,7 +16,7 @@ export function createIdiotikonVuetify(
       ...themeConfig,
       layers: themeConfig.layers ?? false,
     },
-    // blueprint: md2,
+    // blueprint: md3,
     icons: {
       defaultSet: 'mdi',
       aliases,

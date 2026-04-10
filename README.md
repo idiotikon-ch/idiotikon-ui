@@ -8,7 +8,7 @@ This package follows a **"bare Vuetify first"** approach:
 
 1. **Start Pure**: Components use gold-standard Vuetify structure with zero custom styling
 2. **Build Up Incrementally**: Only add styling when there's a clear, cross-app need
-3. **No Framework Lock-in**: Components are Vue 3 + Vuetify 4 only - no Nuxt, no CMS dependencies
+3. **No Framework Lock-in**: Components are Vue 3 + Vuetify 4 only - no Nuxt, no Strapi dependencies
 4. **Proper Vuetify Patterns**: Use Vuetify's intended component structure, props, and utilities instead of fighting the framework
 
 ### Anti-Patterns We Avoid
@@ -17,7 +17,7 @@ This package follows a **"bare Vuetify first"** approach:
 - ❌ Hardcoded defaults that should be consumer-controlled
 - ❌ Custom CSS classes when Vuetify utilities exist
 - ❌ `!important` in stylesheets
-- ❌ Framework-specific imports (Nuxt, CMS) in UI components  
+- ❌ Framework-specific imports (Nuxt, Strapi) in UI components  
 - ❌ Destructive global resets that break Vuetify defaults
 
 ## Package Contents
