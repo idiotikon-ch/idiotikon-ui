@@ -56,3 +56,10 @@ export default {
   name: 'NavItems'
 }
 </script>
+
+<style scoped>
+/* Active navigation item - style Vuetify's built-in active class */
+:deep(.v-list-item--active) {
+  background-color: #b7b7b7;
+}
+</style>

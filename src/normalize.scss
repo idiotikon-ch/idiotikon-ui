@@ -2,11 +2,6 @@
   color: rgb(var(--v-theme-linkText));
 }
 
-/* Container padding reset */
-.v-main .v-container {
-  padding: 0;
-}
-
 /* Nested card spacing - visual hierarchy */
 .v-card .v-card {
   margin: 1.5rem 0.5rem;
@@ -18,65 +13,6 @@
   &:last-child {
     margin-bottom: 0;
   }
-}
-
-/* Focus card variant - self-contained styling */
-.v-card.focus {
-  /* Direct child title and subtitle - h3 size */
-  > .v-card-title,
-  .v-card-title:first-of-type {
-    font-size: 1.75rem;
-    line-height: 1.25;
-    letter-spacing: normal;
-  }
-
-  > .v-card-subtitle,
-  .v-card-subtitle:first-of-type {
-    padding: 0 0 2rem 0;
-    hyphens: none;
-  }
-
-  /* Card text and paragraphs */
-  .v-card-text {
-    color: #454545;
-    font-size: 1rem;
-  }
-
-  p {
-    color: #454545;
-  }
-
-  /* Nested cards within focus - h5 size for titles */
-  .v-card {
-    .v-card-title {
-      font-size: 1.25rem;
-      line-height: 1.375;
-      letter-spacing: normal;
-      padding-bottom: 6px;
-    }
-
-    .v-card-subtitle {
-      padding-bottom: 0;
-    }
-
-    .v-card-text {
-      padding-top: 6px;
-    }
-  }
-
-  /* List items within focus */
-  .v-list-item {
-    padding: 1rem 0;
-  }
-}
-
-/* Active navigation item - style Vuetify's built-in active class */
-.v-list-item--active {
-  background-color: #b7b7b7 !important;
-}
-
-.footer a {
-  color: #c4ced0;
 }
 
 .read-more {

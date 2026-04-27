@@ -37,6 +37,7 @@
     v-else
     :href="url || undefined"
     :link="!!url"
+    :hover="!!url"
     @click="handleCardClick"
   >
     <v-card-title class="text-h5">
