@@ -27,6 +27,7 @@
     :to="item.link && !isExternalLink(item.link) ? item.link : undefined"
     :href="item.link && isExternalLink(item.link) ? item.link : undefined"
     :target="item.link && isExternalLink(item.link) ? '_blank' : undefined"
+    :class="isActiveRoute ? 'active_nav_item' : ''"
   >
     <template v-if="item.icon" #prepend>
       <v-icon>{{ iconMap[item.icon] || item.icon }}</v-icon>
@@ -35,7 +36,10 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+
+const props = defineProps({
   item: {
     type: Object,
     required: true
@@ -44,6 +48,15 @@ defineProps({
     type: Object,
     default: () => ({})
   }
+})
+
+const route = useRoute()
+
+const isActiveRoute = computed(() => {
+  if (!props.item.link || isExternalLink(props.item.link)) {
+    return false
+  }
+  return route.fullPath === props.item.link
 })
 
 function isExternalLink(link: string): boolean {
@@ -58,8 +71,30 @@ export default {
 </script>
 
 <style scoped>
-/* Active navigation item - style Vuetify's built-in active class */
-:deep(.v-list-item--active) {
-  background-color: #b7b7b7;
+/* First-level nested items (direct children of list groups) */
+.v-list-group__items .v-list-item {
+  padding-inline-start: 72px;
+  background-color: #e4e4e452;
+}
+
+/* Second-level nested items (children of children) */
+.v-list-group__items .v-list-group__items .v-list-item {
+  padding-inline-start: 85px;
+  background-color: #e4e4e4f6;
+}
+
+/* Active navigation item at root level */
+.v-list-item.active_nav_item {
+  background-color: #cdcdcd;
+}
+
+/* Active navigation item at first nesting level */
+.v-list-group__items .v-list-item.active_nav_item {
+  background-color: #cdcdcd;
+}
+
+/* Active navigation item at second nesting level */
+.v-list-group__items .v-list-group__items .v-list-item.active_nav_item {
+  background-color: #cdcdcd;
 }
 </style>
