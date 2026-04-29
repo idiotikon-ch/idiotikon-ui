@@ -25,7 +25,7 @@ const props = defineProps({
   },
   placeholder: {
     type: String,
-    default: 'Search'
+    default: 'Suche'
   },
   searchIcon: {
     type: String,
@@ -36,7 +36,10 @@ const props = defineProps({
     default: 'white'
   },
   variant: String,
-  density: String,
+  density: {
+    type: String,
+    default: 'compact'
+  },
   clearable: {
     type: Boolean,
     default: true

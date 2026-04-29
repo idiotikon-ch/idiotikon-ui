@@ -6,18 +6,18 @@
         {{ backText }}
       </v-btn>
     </v-card-actions>
-    
+
     <v-card-title :class="detailView ? 'text-h3' : 'text-h5'">
       <a v-if="url" :href="url" @click.prevent="handleTitleClick">
         {{ title }}
       </a>
       <span v-else>{{ title }}</span>
     </v-card-title>
-    
+
     <v-card-subtitle v-if="date">
       {{ date }}
     </v-card-subtitle>
-    
+
     <v-row>
       <v-col :cols="imgUrl ? 12 : 12" :sm="imgUrl ? 6 : 12" :md="imgUrl ? 8 : 12">
         <v-card-text>
@@ -34,28 +34,29 @@
 
   <!-- Teaser View -->
   <v-card 
-    v-else
-    :href="url || undefined"
-    :link="!!url"
-    :hover="!!url"
+    v-else 
+    :href="url || undefined" 
+    :link="!!url" 
+    :hover="!!url" 
     @click="handleCardClick"
+    class="announcement-card"
   >
     <v-card-title class="text-h5">
       {{ title }}
     </v-card-title>
-    
+
     <v-card-subtitle v-if="date">
       {{ date }}
     </v-card-subtitle>
-    
+
     <v-img v-if="imgUrl" :src="imgUrl" cover />
-    
+
     <v-card-text v-if="teaserText">
-      {{ teaserText }}
+      <div v-html="teaserText"></div>
     </v-card-text>
-    
+
     <v-card-actions v-if="readMoreText">
-      <span class="text-primary">{{ readMoreText }}</span>
+      <span class="text-primary read-more-link">{{ readMoreText }}</span>
     </v-card-actions>
   </v-card>
 </template>
@@ -134,4 +135,11 @@ export default {
 </script>
 
 <style scoped>
+.read-more-link {
+  text-decoration: underline;
+}
+
+.announcement-card {
+  border: 2px solid white;
+}
 </style>

@@ -2,6 +2,14 @@
   color: rgb(var(--v-theme-linkText));
 }
 
+/* Semantic typography overrides - preserve h3 sizing from pre-md3 */
+.text-h3 {
+  font-size: 1.75rem !important;
+  line-height: 1.25 !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+}
+
 /* Nested card spacing - visual hierarchy */
 .v-card .v-card {
   margin: 1.5rem 0.5rem;

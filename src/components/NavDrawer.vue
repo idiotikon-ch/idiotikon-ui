@@ -1,8 +1,9 @@
 <template>
   <v-navigation-drawer
     :width="width"
-    :temporary="temporary"
     :model-value="modelValue"
+    :temporary="temporary"
+    :permanent="!temporary && modelValue"
     :location="location"
     @update:model-value="$emit('update:modelValue', $event)"
   >
