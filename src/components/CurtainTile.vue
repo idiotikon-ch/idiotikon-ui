@@ -1,7 +1,7 @@
 <template>
   <v-hover v-slot="{ isHovering, props: hoverProps }">
     <v-card v-bind="hoverProps" class="flex h-100 w-100" @click="handleClick">
-      <v-img cover :src="imgUrl" class="h-100" :gradient="gradient">
+      <v-img cover :src="imgUrl" class="h-100" :gradient="effectiveGradient">
         <div class="curtain-content d-flex flex-column justify-center pa-5 text-white h-100"
           :class="isActive(isHovering) ? 'bg-primary' : ''" :style="{
             transform: isActive(isHovering) ? '' : 'translateY(45%)',
@@ -26,6 +26,9 @@ const props = defineProps<{
   /** External active state (e.g., from viewport tracking in consumer) */
   active?: boolean
 }>()
+
+const defaultGradient = 'rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)'
+const effectiveGradient = props.gradient === undefined ? defaultGradient : props.gradient
 
 const emit = defineEmits<{
   click: []

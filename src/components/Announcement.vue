@@ -1,6 +1,6 @@
 <template>
   <!-- Detail View -->
-  <v-card v-if="!teaserOnly">
+  <v-card v-if="!teaserOnly" flat>
     <v-card-actions v-if="backLink">
       <v-btn @click="$emit('back')">
         {{ backText }}
@@ -54,7 +54,7 @@
     <v-img v-if="imgUrl" :src="imgUrl" cover />
 
     <v-card-text v-if="teaserText">
-      {{ teaserText }}
+      <div v-html="teaserText"></div>
     </v-card-text>
 
     <v-card-actions v-if="readMoreText">
