@@ -21,6 +21,7 @@ const cardProps = computed(() => {
   const { link, hover, ...rest } = props
   return {
     ...rest,
+    flat: true,
     link: link || !!props.to || !!props.href,
     hover: hover || link || !!props.to || !!props.href
   }

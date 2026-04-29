@@ -27,6 +27,42 @@
   color: rgb(var(--v-theme-primary));
 }
 
+/* Underline links in content text */
+p a,
+.v-card-text a,
+.content-section a {
+  text-decoration: underline !important;
+}
+
+/* White border tile variant - for cards with white borders and custom spacing */
+.v-card.white-border-tile {
+  padding: 1.25rem;
+  border: 2px solid white;
+}
+
+.v-card.white-border-tile.teaser {
+  padding: 1rem;
+}
+
+.v-card.white-border-tile .v-card-title,
+.v-card.white-border-tile .v-card-subtitle,
+.v-card.white-border-tile .v-card-text {
+  padding: 0;
+  margin: 0;
+}
+
+.v-card.white-border-tile .v-card-title {
+  padding-bottom: 0.25rem;
+}
+
+.v-card.white-border-tile .v-card-subtitle {
+  padding-bottom: 0.5rem;
+}
+
+.v-card.white-border-tile .v-card-text {
+  padding: 1rem 0;
+}
+
 /* Style links in card text content */
 .v-card-text a {
   color: rgb(var(--v-theme-primary));

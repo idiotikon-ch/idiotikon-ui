@@ -35,11 +35,13 @@
   <!-- Teaser View -->
   <v-card 
     v-else 
-    :href="url || undefined" 
+    :to="isInternalUrl ? url : undefined"
+    :href="!isInternalUrl && url ? url : undefined" 
     :link="!!url" 
     :hover="!!url" 
     @click="handleCardClick"
-    class="announcement-card"
+    variant="elevated"
+    class="white-border-tile teaser"
   >
     <v-card-title class="text-h5">
       {{ title }}
@@ -52,7 +54,7 @@
     <v-img v-if="imgUrl" :src="imgUrl" cover />
 
     <v-card-text v-if="teaserText">
-      <div v-html="teaserText"></div>
+      {{ teaserText }}
     </v-card-text>
 
     <v-card-actions v-if="readMoreText">
@@ -62,6 +64,8 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
+
 const props = defineProps({
   title: {
     type: String,
@@ -115,6 +119,11 @@ const emit = defineEmits<{
   'title-click': [url: string]
 }>()
 
+// Check if URL is internal (starts with /)
+const isInternalUrl = computed(() => {
+  return props.url && props.url.startsWith('/')
+})
+
 function handleCardClick() {
   if (props.url) {
     emit('click', props.url)
@@ -137,9 +146,5 @@ export default {
 <style scoped>
 .read-more-link {
   text-decoration: underline;
-}
-
-.announcement-card {
-  border: 2px solid white;
 }
 </style>
