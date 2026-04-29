@@ -21,6 +21,11 @@
   &:last-child {
     margin-bottom: 0;
   }
+
+  /* Nested card titles should be medium weight */
+  .v-card-title {
+    font-weight: 500;
+  }
 }
 
 .read-more {

@@ -1,7 +1,8 @@
 <template>
   <v-container 
     v-bind="$attrs" 
-    class="idi-container"
+    fluid
+    class="idi-container my-10"
     :style="containerStyle"
   >
     <slot />
