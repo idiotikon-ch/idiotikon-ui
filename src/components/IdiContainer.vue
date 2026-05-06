@@ -61,5 +61,6 @@ export default {
 <style scoped>
 .idi-container {
   padding: 0;
+  transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 </style>

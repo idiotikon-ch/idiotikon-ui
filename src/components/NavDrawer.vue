@@ -3,8 +3,9 @@
     :width="width"
     :model-value="modelValue"
     :temporary="temporary"
-    :permanent="!temporary && modelValue"
+    :scrim="temporary"
     :location="location"
+    touchless
     @update:model-value="$emit('update:modelValue', $event)"
   >
     <v-list v-model:opened="openedGroups" class="pt-0">
