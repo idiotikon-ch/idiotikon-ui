@@ -78,3 +78,8 @@ p a,
 .v-card-text a {
   color: rgb(var(--v-theme-primary));
 }
+
+.v-card.sidebar {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+}
