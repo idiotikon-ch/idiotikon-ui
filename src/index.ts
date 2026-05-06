@@ -11,6 +11,5 @@ export { default as ScrollToTop } from './components/ScrollToTop.vue';
 export { default as FocusCard } from './components/FocusCard.vue';
 export { default as IdiContainer } from './components/IdiContainer.vue';
 export { default as Accordion } from './components/Accordion.vue';
-export { default as WordStory } from './components/WordStory.vue';
 // Type exports
 export type { AccordionItem } from './components/Accordion.vue';export { default as GeneralTile } from './components/GeneralTile.vue';
