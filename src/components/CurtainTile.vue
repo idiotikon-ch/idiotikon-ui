@@ -9,8 +9,8 @@
             opacity: isActive(isHovering) ? 0.8 : 1,
           }">
           <div class="text-center text-h5" v-html="title" />
-          <div v-if="content" class="text-body-small mt-4" :style="{ opacity: isActive(isHovering) ? 1 : 0 }" v-html="content" />
-          <div v-if="actionText" class="text-caption" v-html="actionText" />
+          <div v-if="content" class="text-body-medium mt-4" :style="{ opacity: isActive(isHovering) ? 1 : 0 }" v-html="content" />
+          <div v-if="actionText" class="text-body-medium" v-html="actionText" />
         </div>
       </v-img>
     </v-card>

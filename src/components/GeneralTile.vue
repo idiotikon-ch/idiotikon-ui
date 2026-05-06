@@ -17,7 +17,7 @@
       class="tile-image"
     />
 
-    <v-card-text v-if="content || $slots.content" class="tile-body">
+    <v-card-text v-if="content || $slots.content" class="tile-body text-body-large">
       <slot name="content">
         <div v-html="content" />
       </slot>

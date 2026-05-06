@@ -4,9 +4,9 @@
 
 /* Semantic typography overrides - preserve h3 sizing from pre-md3 */
 .text-h3 {
-  font-size: 1.75rem !important;
-  line-height: 1.25 !important;
-  font-weight: 500 !important;
+  font-size: 1.75rem ;
+  line-height: 1.25;
+  font-weight: 500;
 }
 
 .text-h5 {
@@ -81,5 +81,24 @@ p a,
 
 .v-card.sidebar {
   margin-bottom: 1.5rem;
-  padding: 1.5rem;
+  padding: 1.5rem;  
+}
+
+.v-card.sidebar .v-card-title,
+.v-card.sidebar .v-card-text {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.v-card.sidebar .v-card-title{
+  padding-top: 0;
+  font-weight: 500;
+}
+
+.v-card.sidebar .v-card-text{
+  padding-top: 0.8rem;
+}
+
+.v-card.sidebar .v-img{
+  margin-top: 1.5rem;
 }
