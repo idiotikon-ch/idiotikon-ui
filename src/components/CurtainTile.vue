@@ -8,9 +8,9 @@
             transform: isActive(isHovering) ? '' : 'translateY(45%)',
             opacity: isActive(isHovering) ? 0.8 : 1,
           }">
-          <div class="text-center text-h5 font-weight-bold" v-html="title" />
-          <div v-if="content" class="text-body-2 mt-4" :style="{ opacity: isActive(isHovering) ? 1 : 0 }" v-html="content" />
-          <div v-if="actionText" class="text-caption font-weight-bold" v-html="actionText" />
+          <div class="text-center text-h5" v-html="title" />
+          <div v-if="content" class="text-body-small mt-4" :style="{ opacity: isActive(isHovering) ? 1 : 0 }" v-html="content" />
+          <div v-if="actionText" class="text-caption" v-html="actionText" />
         </div>
       </v-img>
     </v-card>

@@ -21,7 +21,6 @@ const cardProps = computed(() => {
   const { link, hover, ...rest } = props
   return {
     ...rest,
-    flat: true,
     link: link || !!props.to || !!props.href,
     hover: hover || link || !!props.to || !!props.href
   }
@@ -62,15 +61,19 @@ export default {
   margin: 0;
 }
 
+/* Remove top margin from direct v-card children */
+.focus-card :deep(> .v-card) {
+  margin-top: 0;
+}
+
 /* Direct child title - larger, bolder, more bottom padding */
 .focus-card :deep(> .v-card-title),
 .focus-card :deep(.v-card-title:first-of-type) {
   font-size: 1.75rem;
   font-weight: 500;
   line-height: 1.25;
-  letter-spacing: normal;
   padding-top: 0;
-  padding-bottom: 1.5rem;
+  padding-bottom: 2rem;
 }
 
 .focus-card :deep(> .v-card-subtitle),
@@ -85,12 +88,6 @@ export default {
   padding-bottom: 0;
 }
 
-/* Direct actions - remove padding */
-.focus-card :deep(> .v-card-actions) {
-  padding-top: 1rem;
-  padding-bottom: 0;
-}
-
 /* Card text and paragraphs */
 .focus-card :deep(.v-card-text) {
   color: #454545;
@@ -99,6 +96,8 @@ export default {
 
 .focus-card :deep(p) {
   color: #454545;
+  margin-top: 0;
+  padding-bottom: 0.5rem;
 }
 
 /* Cards inside list - remove all margins but add vertical spacing */
@@ -123,10 +122,14 @@ export default {
 }
 
 /* Nested cards within focus - h5 size for titles */
+.focus-card :deep(.v-card .v-card) {
+  margin-top: 0;
+}
+
 .focus-card :deep(.v-card .v-card-title) {
   font-size: 1.25rem;
-  line-height: 1.375;
-  letter-spacing: normal;
+  line-height: 1.5rem;
+  letter-spacing: .0125em;
   padding-bottom: 6px;
 }
 
@@ -137,6 +140,23 @@ export default {
 
 .focus-card :deep(.v-card .v-card-text) {
   padding-top: 6px;
+}
+
+/* Direct v-btn children (flagship pattern - button as direct child) */
+.focus-card :deep(> .v-btn) {
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+/* v-card-actions styling - make buttons behave like direct children */
+.focus-card :deep(> .v-card-actions) {
+  padding: 1rem 0 0 0;
+}
+
+.focus-card :deep(> .v-card-actions .v-btn) {
+  margin: 0;
+  padding-left: 0;
+  text-transform: uppercase;
 }
 
 /* List items within focus */

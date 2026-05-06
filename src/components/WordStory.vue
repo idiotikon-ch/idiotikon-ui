@@ -1,7 +1,7 @@
 <template>
     <!-- Standard view (for overview pages) -->
     <v-card v-if="type === 'standard'" border class="mb-4">
-        <v-card-title class="text-wrap">
+        <v-card-title>
             <a :href="`/wortgeschichten/${story.slug}`" style="text-decoration: none; color: inherit;">
                 {{ story.title }}
             </a>
@@ -35,9 +35,9 @@
     </v-card>
 
     <!-- Teaser view (for HomePage tiles) -->
-    <v-card v-else-if="type === 'teaser'" border class="teaser-card"
+    <v-card v-else-if="type === 'teaser'" border class="white-border-tile teaser"
         @click="$router.push(`/wortgeschichten/${story.slug}`)" style="cursor: pointer;">
-        <v-card-title class="text-wrap">
+        <v-card-title class="text-h5">
             {{ story.title }}
         </v-card-title>
 

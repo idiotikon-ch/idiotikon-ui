@@ -7,12 +7,18 @@
   font-size: 1.75rem !important;
   line-height: 1.25 !important;
   font-weight: 500 !important;
-  letter-spacing: normal !important;
 }
 
-/* Nested card spacing - visual hierarchy */
+.text-h5 {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+
+
+/* Nested card spacing - flush left with vertical spacing only */
 .v-card .v-card {
-  margin: 1.5rem 0.5rem;
+  margin: 1.5rem 0;
 
   &:first-child {
     margin-top: 0;
@@ -50,7 +56,8 @@ p a,
 
 .v-card.white-border-tile .v-card-title,
 .v-card.white-border-tile .v-card-subtitle,
-.v-card.white-border-tile .v-card-text {
+.v-card.white-border-tile .v-card-text,
+.v-card.white-border-tile .v-card-actions {
   padding: 0;
   margin: 0;
 }
