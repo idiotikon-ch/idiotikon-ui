@@ -47,7 +47,7 @@ const props = defineProps({
   },
   tooltipText: {
     type: String,
-    default: 'Back to top'
+    default: 'Nach oben'
   },
   tooltipLocation: {
     type: String,
