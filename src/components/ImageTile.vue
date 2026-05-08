@@ -1,26 +1,11 @@
 <template>
   <div class="image-tile" :style="{ width: widthValue }">
     <v-hover v-slot="{ isHovering, props: hoverProps }">
-      <v-card
-        v-bind="hoverProps"
-        class="image-tile-card"
-        @click="handleClick"
-      >
-        <v-img
-          :src="image.src"
-          :alt="image.alt || image.title || ''"
-          cover
-          :aspect-ratio="aspectRatio"
-        >
+      <v-card v-bind="hoverProps" class="image-tile-card" @click="handleClick">
+        <v-img :src="image.src" :alt="image.alt || image.title || ''" cover :aspect-ratio="aspectRatio">
           <!-- Magnify button on hover -->
-          <v-btn
-            v-show="isHovering"
-            :icon="mdiMagnifyScan"
-            color="black"
-            variant="flat"
-            class="magnify-btn"
-            :style="{ opacity: 0.6 }"
-          />
+          <v-btn v-show="isHovering" :icon="mdiMagnifyScan" color="black" variant="flat" class="magnify-btn"
+            :style="{ opacity: 0.6 }" />
         </v-img>
       </v-card>
     </v-hover>
@@ -31,14 +16,8 @@
     </div>
 
     <!-- Integrated ImageViewer (enabled by default) -->
-    <ImageViewer
-      v-if="!disableViewer"
-      v-model="viewerOpen"
-      :images="viewerImages"
-      :start-index="currentIndex"
-      :compact-legend="compactLegend"
-      :scrim="scrim"
-    />
+    <ImageViewer v-if="!disableViewer" v-model="viewerOpen" :images="viewerImages" :start-index="currentIndex"
+      :compact-legend="compactLegend" :scrim="scrim" />
   </div>
 </template>
 
@@ -87,7 +66,7 @@ const props = defineProps({
   /** Viewer scrim opacity */
   scrim: {
     type: [String, Number],
-    default: 0.85
+    default: '0.85'
   }
 })
 

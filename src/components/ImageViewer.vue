@@ -1,77 +1,34 @@
 <template>
-  <v-dialog
-    v-model="dialogOpen"
-    fullscreen
-    :scrim="scrim"
-    @click="handleDialogClick"
-  >
-    <v-carousel
-      ref="carouselRef"
-      v-model="currentIndex"
-      height="100%"
-      hide-delimiters
-      :show-arrows="images.length > 1"
-    >
-      <v-carousel-item
-        v-for="(image, index) in images"
-        :key="index"
-      >
-        <v-img
-          :src="image.src"
-          :alt="image.alt || image.title || ''"
-          contain
-          class="h-100"
-        />
+  <v-dialog v-model="dialogOpen" fullscreen :scrim="String(scrim)" @click="handleDialogClick">
+    <v-carousel ref="carouselRef" v-model="currentIndex" height="100%" hide-delimiters :show-arrows="images.length > 1">
+      <v-carousel-item v-for="(image, index) in images" :key="index">
+        <v-img :src="image.src" :alt="image.alt || image.title || ''" contain class="h-100" />
 
         <!-- Close button -->
-        <v-btn
-          v-if="showControls"
-          :icon="mdiClose"
-          variant="outlined"
-          color="white"
-          class="close-btn"
-          @click.stop="dialogOpen = false"
-        />
+        <v-btn v-if="showControls" :icon="mdiClose" variant="outlined" color="white" class="close-btn"
+          @click.stop="dialogOpen = false" />
 
         <!-- Title overlay -->
-        <v-sheet
-          v-if="image.title && showControls"
-          class="title-overlay"
-          color="rgba(0, 0, 0, 0.7)"
-        >
+        <v-sheet v-if="image.title && showControls" class="title-overlay" color="rgba(0, 0, 0, 0.7)">
           <div class="text-white text-center pa-4" v-html="image.title" />
         </v-sheet>
 
         <!-- Legend/description overlay -->
-        <v-sheet
-          v-if="(image.legend || image.description) && showControls"
-          class="legend-overlay"
-          color="rgba(0, 0, 0, 0.7)"
-          :style="{ minHeight: compactLegend ? 'auto' : '180px' }"
-        >
+        <v-sheet v-if="(image.legend || image.description) && showControls" class="legend-overlay"
+          color="rgba(0, 0, 0, 0.7)" :style="{ minHeight: compactLegend ? 'auto' : '180px' }">
           <div class="text-white text-center pa-4" v-html="image.legend || image.description" />
         </v-sheet>
       </v-carousel-item>
 
       <!-- Custom navigation buttons -->
       <template #prev="{ props }">
-        <v-btn
-          v-if="showControls"
-          :icon="mdiChevronLeft"
-          variant="outlined"
-          color="white"
-          @click.stop="props.onClick"
-        />
+        <v-btn v-if="showControls" :icon="mdiChevronLeft" variant="outlined" color="white"
+          @click.stop="props.onClick" />
       </template>
 
       <template #next="{ props }">
-        <v-btn
-          v-if="showControls"
-          :icon="mdiChevronRight"
-          variant="outlined"
-          color="white"
-          @click.stop="props.onClick"
-        />
+        <v-btn v-if="showControls" :icon="mdiChevronRight" variant="outlined" color="white"
+          @click.stop="props.onClick" />
       </template>
     </v-carousel>
   </v-dialog>
@@ -113,7 +70,7 @@ const props = defineProps({
   /** Scrim opacity */
   scrim: {
     type: [String, Number],
-    default: 0.85
+    default: '0.85'
   }
 })
 
@@ -151,7 +108,7 @@ watch(dialogOpen, (isOpen) => {
 // Keyboard navigation
 const handleKeyDown = (e: KeyboardEvent) => {
   if (!dialogOpen.value) return
-  
+
   if (e.key === 'ArrowRight') {
     navigateNext()
   } else if (e.key === 'ArrowLeft') {
@@ -162,8 +119,8 @@ const handleKeyDown = (e: KeyboardEvent) => {
 }
 
 const navigatePrev = () => {
-  currentIndex.value = currentIndex.value === 0 
-    ? props.images.length - 1 
+  currentIndex.value = currentIndex.value === 0
+    ? props.images.length - 1
     : currentIndex.value - 1
 }
 
