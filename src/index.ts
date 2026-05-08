@@ -11,5 +11,10 @@ export { default as ScrollToTop } from './components/ScrollToTop.vue';
 export { default as FocusCard } from './components/FocusCard.vue';
 export { default as IdiContainer } from './components/IdiContainer.vue';
 export { default as Accordion } from './components/Accordion.vue';
+export { default as GeneralTile } from './components/GeneralTile.vue';
+export { default as ImageTile } from './components/ImageTile.vue';
+export { default as ImageViewer } from './components/ImageViewer.vue';
+
 // Type exports
-export type { AccordionItem } from './components/Accordion.vue';export { default as GeneralTile } from './components/GeneralTile.vue';
+export type { AccordionItem } from './components/Accordion.vue';
+export type { ImageViewerImage } from './components/ImageViewer.vue';
