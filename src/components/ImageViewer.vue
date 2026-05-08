@@ -1,6 +1,13 @@
 <template>
-  <v-dialog v-model="dialogOpen" fullscreen :scrim="String(scrim)" @click="handleDialogClick">
-    <v-carousel ref="carouselRef" v-model="currentIndex" height="100%" hide-delimiters :show-arrows="images.length > 1">
+  <v-dialog v-model="dialogOpen" fullscreen scrim="black" @click="handleDialogClick">
+    <v-carousel 
+      ref="carouselRef" 
+      v-model="currentIndex" 
+      height="100%" 
+      hide-delimiters 
+      :show-arrows="images.length > 1" 
+      class="image-viewer-carousel"
+    >
       <v-carousel-item v-for="(image, index) in images" :key="index">
         <v-img :src="image.src" :alt="image.alt || image.title || ''" contain class="h-100" />
 
@@ -67,10 +74,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  /** Scrim opacity */
+  /** Carousel background opacity (number 0-1) or color (string) */
   scrim: {
     type: [String, Number],
-    default: '0.85'
+    default: 0.85
   }
 })
 
@@ -151,6 +158,16 @@ export default {
 </script>
 
 <style scoped>
+/* Dark background for carousel */
+.image-viewer-carousel {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Override Vuetify's default v-overlay opacity if present */
+.image-viewer-carousel :deep(.v-overlay) {
+  opacity: 0.85 !important;
+}
+
 .close-btn {
   position: fixed;
   top: 12px;
