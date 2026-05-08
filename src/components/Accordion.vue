@@ -15,8 +15,8 @@
         :aria-controls="'panel-content-' + i"
         @group:selected="onPanelChange(i, $event)"
       >
-        <v-expansion-panel-title 
-          class="accordion-title" 
+        <v-expansion-panel-title
+          class="accordion-title"
           :class="{ 'has-bg-image': titleBackgroundImage }"
           :color="titleColor"
           :style="titleStyles"

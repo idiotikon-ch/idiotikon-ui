@@ -97,6 +97,7 @@ export default {
 .focus-card :deep(p) {
   color: #454545;
   margin-top: 0;
+  margin-bottom: 0;
   padding-bottom: 0.5rem;
 }
 
