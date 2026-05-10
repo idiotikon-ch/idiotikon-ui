@@ -50,6 +50,13 @@ export default {
   padding-right: 0;
 }
 
+/* v-card-text inside tabs is still top-level FocusCard content */
+.focus-card :deep(> .v-tabs-window .v-tabs-window-item > .v-card-text),
+.focus-card :deep(> .v-tabs-window .v-tabs-window-item > .v-card-title) {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /* v-card-item gets padding-top/bottom too when title passed as prop */
 .focus-card :deep(> .v-card-item) {
   padding-top: 0;

@@ -1,9 +1,6 @@
 <template>
   <!-- Group with children -->
-  <v-list-group
-    v-if="item.sub_menus && item.sub_menus.length"
-    :value="item.id || item.title"
-  >
+  <v-list-group v-if="item.sub_menus && item.sub_menus.length" :value="item.id || item.title">
     <template #activator="{ props }">
       <v-list-item v-bind="props" :title="item.title">
         <template v-if="item.icon" #prepend>
@@ -12,23 +9,15 @@
       </v-list-item>
     </template>
 
-    <NavItems
-      v-for="child in item.sub_menus"
-      :key="child.id || child.title"
-      :item="child"
-      :icon-map="iconMap"
-    />
+    <NavItems v-for="child in item.sub_menus" :key="child.id || child.title" :item="child" :icon-map="iconMap" />
   </v-list-group>
 
   <!-- Single item with link -->
-  <v-list-item
-    v-else
-    :title="item.title"
-    :to="item.link && !isExternalLink(item.link) ? item.link : undefined"
+  <v-list-item v-else :title="item.title"
+    :to="item.link && !isExternalLink(item.link) ? normalizeLink(item.link) : undefined"
     :href="item.link && isExternalLink(item.link) ? item.link : undefined"
     :target="item.link && isExternalLink(item.link) ? '_blank' : undefined"
-    :class="isActiveRoute ? 'active_nav_item' : ''"
-  >
+    :class="isActiveRoute ? 'active_nav_item' : ''">
     <template v-if="item.icon" #prepend>
       <v-icon>{{ iconMap[item.icon] || item.icon }}</v-icon>
     </template>
@@ -56,11 +45,16 @@ const isActiveRoute = computed(() => {
   if (!props.item.link || isExternalLink(props.item.link)) {
     return false
   }
-  return route.fullPath === props.item.link
+  return route.fullPath === normalizeLink(props.item.link)
 })
 
 function isExternalLink(link: string): boolean {
   return typeof link === 'string' && (link.startsWith('http://') || link.startsWith('https://'))
+}
+
+function normalizeLink(link: string): string {
+  if (!link || isExternalLink(link)) return link
+  return link.startsWith('/') ? link : '/' + link
 }
 </script>
 
