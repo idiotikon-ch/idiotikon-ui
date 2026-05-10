@@ -3,7 +3,7 @@
     <!-- Upper footer -->
     <div class="upper-footer d-flex justify-center w-100">
       <v-card flat :max-width="maxWidth" :width="contentWidth">
-        <v-row v-if="hasFourthSlot" class="ma-0">
+        <v-row no-gutters v-if="hasFourthSlot" class="ma-0">
           <!-- 2x2 Grid layout when slot4 exists -->
           <v-col cols="12" sm="6" class="px-0">
             <slot name="address">
@@ -24,7 +24,7 @@
           </v-col>
         </v-row>
 
-        <v-row v-if="hasFourthSlot" class="ma-0">
+        <v-row no-gutters v-if="hasFourthSlot" class="ma-0">
           <v-col cols="12" sm="6" class="px-0">
             <slot name="donations">
               <p class="header">Spenden</p>
@@ -41,7 +41,7 @@
         </v-row>
 
         <!-- 2-column layout when no slot4 (onch pattern) -->
-        <v-row v-if="!hasFourthSlot" class="ma-0">
+        <v-row no-gutters v-if="!hasFourthSlot" class="ma-0">
           <v-col cols="12" sm="6" class="px-0">
             <slot name="address">
               <p class="header">Adresse</p>
@@ -73,7 +73,7 @@
 
     <!-- Lower footer -->
     <div class="lower-footer text-center w-100 py-2 px-4">
-      <p class="mb-0">
+      <p class="mt-0 mb-2">
         Copyright © {{ currentYear }}
         <template v-if="$slots.legal">
           <span> | </span>
@@ -149,9 +149,10 @@ export default {
   color: #c4ced0;
 }
 
-.upper-footer .v-card :deep(div) {
+/* Tighten typography for both <p> and <div> slot content */
+.upper-footer .v-card :deep(div),
+.upper-footer :deep(p) {
   font-size: 0.9rem;
-  line-height: 1.1rem;
   margin-bottom: 0.5rem;
 }
 
@@ -164,9 +165,6 @@ export default {
   color: inherit;
 }
 
-.upper-footer :deep(.social_media p) {
-  margin-bottom: 0.2rem;
-}
 
 .lower-footer {
   background-color: #1c1d1f;
