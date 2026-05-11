@@ -1,8 +1,8 @@
 <template>
-  <v-container 
-    v-bind="$attrs" 
+  <v-container
+    v-bind="$attrs"
     fluid
-    class="idi-container my-10"
+    class="idi-container my-10 pa-0"
     :style="containerStyle"
   >
     <slot />
@@ -34,7 +34,7 @@ const { mdAndUp } = useDisplay()
 
 const containerStyle = computed(() => {
   const style: Record<string, string> = {}
-  
+
   if (props.width) {
     if (typeof props.width === 'string') {
       style.width = props.width
@@ -43,11 +43,11 @@ const containerStyle = computed(() => {
       style.width = mdAndUp.value ? (props.width.md || props.width.default || '90%') : (props.width.default || '90%')
     }
   }
-  
+
   if (props.maxWidth) {
     style.maxWidth = props.maxWidth
   }
-  
+
   return style
 })
 </script>
@@ -60,7 +60,6 @@ export default {
 
 <style scoped>
 .idi-container {
-  padding: 0;
   transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 </style>
