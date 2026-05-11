@@ -1,11 +1,11 @@
 <template>
   <v-container fluid class="footer pa-0">
     <!-- Upper footer -->
-    <div class="upper-footer d-flex justify-center w-100">
+    <div class="upper-footer d-flex justify-center w-100 pb-4">
       <v-card flat :max-width="maxWidth" :width="contentWidth">
-        <v-row no-gutters v-if="hasFourthSlot" class="ma-0 mb-8">
+        <v-row no-gutters v-if="hasFourthSlot" class="ma-0">
           <!-- 2x2 Grid layout when slot4 exists -->
-          <v-col cols="12" sm="6">
+          <v-col cols="12" sm="6" class="mb-4">
             <slot name="address">
               <p class="header">Adresse</p>
               <ContactInfo 
@@ -16,7 +16,7 @@
             </slot>
           </v-col>
 
-          <v-col cols="12" sm="6">
+          <v-col cols="12" sm="6" class="mb-4">
             <slot name="social">
               <p class="header">Besuchen Sie uns auf Social Media</p>
               <SocialLinks :links="defaultSocialLinks" />
@@ -24,8 +24,8 @@
           </v-col>
         </v-row>
 
-        <v-row no-gutters v-if="hasFourthSlot" class="ma-0 mb-8">
-          <v-col cols="12" sm="6">
+        <v-row no-gutters v-if="hasFourthSlot" class="ma-0">
+          <v-col cols="12" sm="6" class="mb-4">
             <slot name="donations">
               <p class="header">Spenden</p>
               <p>
@@ -35,14 +35,14 @@
             </slot>
           </v-col>
 
-          <v-col cols="12" sm="6">
+          <v-col cols="12" sm="6" class="mb-4">
             <slot name="column4" />
           </v-col>
         </v-row>
 
         <!-- 2-column layout when no slot4 (onch pattern) -->
-        <v-row no-gutters v-if="!hasFourthSlot" class="ma-0 mb-8">
-          <v-col cols="12" sm="6">
+        <v-row no-gutters v-if="!hasFourthSlot" class="ma-0">
+          <v-col cols="12" sm="6" class="mb-4">
             <slot name="address">
               <p class="header">Adresse</p>
               <ContactInfo 
@@ -61,7 +61,7 @@
             </slot>
           </v-col>
 
-          <v-col cols="12" sm="6">
+          <v-col cols="12" sm="6" class="mb-4">
             <slot name="social">
               <p class="header">Besuchen Sie uns auf Social Media</p>
               <SocialLinks :links="defaultSocialLinks" />
