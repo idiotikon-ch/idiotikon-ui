@@ -8,10 +8,12 @@
           <v-col cols="12" sm="6" class="mb-4">
             <slot name="address">
               <p class="header">Adresse</p>
-              <ContactInfo 
+              <ContactInfo
                 address="Schweizerisches Idiotikon\nAuf der Mauer 5\n8001 Zürich"
                 email="info@idiotikon.ch"
-                phone="+41 (0) 44 251 36 76" 
+                phone="+41 (0) 44 251 36 76"
+                font-size="0.9rem"
+                icon-size="1.2rem"
               />
             </slot>
           </v-col>
@@ -45,10 +47,10 @@
           <v-col cols="12" sm="6" class="mb-4">
             <slot name="address">
               <p class="header">Adresse</p>
-              <ContactInfo 
+              <ContactInfo
                 address="Schweizerisches Idiotikon\nAuf der Mauer 5\n8001 Zürich"
                 email="info@idiotikon.ch"
-                phone="+41 (0) 44 251 36 76" 
+                phone="+41 (0) 44 251 36 76"
               />
             </slot>
 
