@@ -12,7 +12,7 @@
             v-if="link.imgSrc"
             :src="link.imgSrc"
             :alt="link.label"
-            style="height: 1.1rem; width: 1.1rem; margin-right: 10px; margin-left: 4px; vertical-align: center;"
+            style="height: 1.1rem; width: 1.1rem; margin-right: 10px; margin-left: 2px; vertical-align: bottom;"
           />
           <v-icon v-else-if="link.icon" class="mr-2">{{ link.icon }}</v-icon>
         </span>

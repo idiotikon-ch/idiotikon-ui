@@ -1,10 +1,10 @@
 <template>
   <!-- Group with children -->
   <v-list-group v-if="item.sub_menus && item.sub_menus.length" :value="item.id || item.title">
-    <template #activator="{ props }">
+    <template #activator="{ props, isOpen }">
       <v-list-item v-bind="props" :title="item.title">
         <template v-if="item.icon" #prepend>
-          <v-icon>{{ iconMap[item.icon] || item.icon }}</v-icon>
+          <v-icon :class="{ 'icon--open': isOpen }">{{ iconMap[item.icon] || item.icon }}</v-icon>
         </template>
       </v-list-item>
     </template>
@@ -65,9 +65,14 @@ export default {
 </script>
 
 <style scoped>
+/* Remove opacity softening on icon when group is open */
+.icon--open {
+  opacity: 1;
+}
+
 /* First-level nested items (direct children of list groups) */
 .v-list-group__items .v-list-item {
-  padding-inline-start: 72px;
+  padding-inline-start: 4.5rem;
   background-color: #e4e4e452;
 }
 
