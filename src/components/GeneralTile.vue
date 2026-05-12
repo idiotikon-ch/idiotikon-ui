@@ -2,20 +2,20 @@
   <v-card 
     :class="['general-tile', tileClass]"
     :hover="isClickable"
+    :ripple="isClickable"
     @click="handleClick"
   >
-    <v-card-title v-if="title" class="text-h5">
+    <v-card-title v-if="title || $slots.title" class="text-h5">
       <slot name="title">
         <span v-html="title" />
       </slot>
     </v-card-title>
 
-    <v-img 
-      v-if="imageUrl" 
-      :src="imageUrl" 
-      cover 
-      class="tile-image"
-    />
+    <!-- Image viewer mode: clicking image opens fullscreen -->
+    <ImageTile v-if="imageUrl && imageViewer" :image="{ src: imageUrl }" />
+
+    <!-- Plain image mode -->
+    <v-img v-else-if="imageUrl" :src="imageUrl" cover class="tile-image" />
 
     <v-card-text v-if="content || $slots.content" class="tile-body text-body-large">
       <slot name="content">
@@ -27,6 +27,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import ImageTile from './ImageTile.vue'
 
 const props = defineProps({
   title: {
@@ -52,6 +53,10 @@ const props = defineProps({
   tileClass: {
     type: String,
     default: 'sidebar tile-card'
+  },
+  imageViewer: {
+    type: Boolean,
+    default: false
   }
 })
 
