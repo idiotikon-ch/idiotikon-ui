@@ -1,6 +1,10 @@
 <template>
   <!-- Detail View -->
-  <v-card v-if="!teaserOnly" flat>
+  <v-card
+    v-if="!teaserOnly"
+    :flat="detailView"
+    :class="detailView ? 'detail-view' : 'white-border-tile'"
+  >
     <v-card-actions v-if="backLink">
       <v-btn @click="$emit('back')">
         {{ backText }}
@@ -8,7 +12,7 @@
     </v-card-actions>
 
     <v-card-title :class="detailView ? 'text-h3' : 'text-h5'">
-      <a v-if="url" :href="url" @click.prevent="handleTitleClick">
+      <a v-if="url && titleLink" :href="url" @click.prevent="handleTitleClick">
         {{ title }}
       </a>
       <span v-else>{{ title }}</span>
@@ -33,12 +37,12 @@
   </v-card>
 
   <!-- Teaser View -->
-  <v-card 
-    v-else 
+  <v-card
+    v-else
     :to="isInternalUrl ? url : undefined"
-    :href="!isInternalUrl && url ? url : undefined" 
-    :link="!!url" 
-    :hover="!!url" 
+    :href="!isInternalUrl && url ? url : undefined"
+    :link="!!url"
+    :hover="!!url"
     @click="handleCardClick"
     variant="elevated"
     class="white-border-tile teaser"
@@ -105,7 +109,11 @@ const props = defineProps({
   },
   backText: {
     type: String,
-    default: 'Back to overview'
+    default: 'Zurück zur Übersicht'
+  },
+  titleLink: {
+    type: Boolean,
+    default: true
   },
   readMoreText: {
     type: String,
@@ -147,4 +155,11 @@ export default {
 .read-more-link {
   text-decoration: underline;
 }
+
+/* Detail view: strip all card chrome so parent FocusCard styles apply cleanly */
+.detail-view {
+  padding: 0;
+  background: transparent;
+}
+
 </style>

@@ -1,26 +1,32 @@
 .v-card-title a {
   color: rgb(var(--v-theme-linkText));
+  text-decoration: none;
+}
+
+/* Teaser cards: no colored title by card's <a> wrapper */
+.v-card.teaser .v-card-title {
+  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
 }
 
 /* Semantic typography overrides - preserve h3 sizing from pre-md3 */
 .text-h3 {
-  font-size: 1.75rem ;
-  line-height: 1.25;
-  font-weight: 500;
+  font-size: 1.75rem !important;
+  line-height: 1.25 !important;
+  font-weight: 500 !important;
 }
 
 .text-h4 {
-  font-size: 1.5rem;
-  line-height: 1.25;
+  font-size: 1.5rem !important;
+  line-height: 1.25 !important;
 }
 
 .text-h5 {
-  font-size: 1.25rem;
-  line-height: 1.5rem;
+  font-size: 1.25rem !important;
+  line-height: 1.5rem !important;
 }
 
 .text-h6 {
-  font-size: 1rem;
+  font-size: 1rem !important;
 }
 
 /* Nested card spacing - flush left with vertical spacing only */
@@ -43,6 +49,11 @@
 
 .read-more {
   color: rgb(var(--v-theme-primary));
+}
+
+/* Utility: remove top margin from a button that sits at the top of a FocusCard */
+.top-btn {
+  margin-top: 0 !important;
 }
 
 /* Underline links in content text */
