@@ -1,7 +1,7 @@
 <template>
-  <v-container fluid class="footer pa-0">
+  <v-container fluid class="footer pa-0 mt-auto">
     <!-- Upper footer -->
-    <div class="upper-footer d-flex justify-center w-100 pb-4">
+    <div v-if="!lowerOnly" class="upper-footer d-flex justify-center w-100 pb-4">
       <v-card flat :max-width="maxWidth" :width="contentWidth">
         <v-row no-gutters v-if="hasFourthSlot" class="ma-0">
           <!-- 2x2 Grid layout when slot4 exists -->
@@ -115,6 +115,10 @@ const props = defineProps({
   sagwLogo: {
     type: String,
     default: ''
+  },
+  lowerOnly: {
+    type: Boolean,
+    default: false
   }
 })
 
