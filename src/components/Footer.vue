@@ -2,10 +2,10 @@
   <v-container fluid class="footer pa-0 mt-auto">
     <!-- Upper footer -->
     <div v-if="!lowerOnly" class="upper-footer d-flex justify-center w-100 pb-4">
-      <v-card flat :max-width="maxWidth" :width="contentWidth">
+      <v-card flat :max-width="maxWidth" :width="contentWidth" class="pa-0">
         <v-row no-gutters v-if="hasFourthSlot" class="ma-0">
           <!-- 2x2 Grid layout when slot4 exists -->
-          <v-col cols="12" sm="6" class="mb-4">
+          <v-col cols="12" sm="6" class="mb-4 footer-content">
             <slot name="address">
               <p class="header">Adresse</p>
               <ContactInfo
@@ -18,7 +18,7 @@
             </slot>
           </v-col>
 
-          <v-col cols="12" sm="6" class="mb-4">
+          <v-col cols="12" sm="6" class="mb-4 footer-content">
             <slot name="social">
               <p class="header">Besuchen Sie uns auf Social Media</p>
               <SocialLinks :links="defaultSocialLinks" />
@@ -27,7 +27,7 @@
         </v-row>
 
         <v-row no-gutters v-if="hasFourthSlot" class="ma-0">
-          <v-col cols="12" sm="6" class="mb-4">
+          <v-col cols="12" sm="6" class="mb-4 footer-content">
             <slot name="donations">
               <p class="header">Spenden</p>
               <p>
@@ -37,14 +37,14 @@
             </slot>
           </v-col>
 
-          <v-col cols="12" sm="6" class="mb-4">
+          <v-col cols="12" sm="6" class="mb-4 footer-content">
             <slot name="column4" />
           </v-col>
         </v-row>
 
         <!-- 2-column layout when no slot4 (onch pattern) -->
         <v-row no-gutters v-if="!hasFourthSlot" class="ma-0">
-          <v-col cols="12" sm="6" class="mb-4">
+          <v-col cols="12" sm="6" class="mb-4 footer-content">
             <slot name="address">
               <p class="header">Adresse</p>
               <ContactInfo
@@ -63,7 +63,7 @@
             </slot>
           </v-col>
 
-          <v-col cols="12" sm="6" class="mb-4">
+          <v-col cols="12" sm="6" class="mb-4 footer-content">
             <slot name="social">
               <p class="header">Besuchen Sie uns auf Social Media</p>
               <SocialLinks :links="defaultSocialLinks" />
@@ -164,31 +164,34 @@ export default {
   color: #c4ced0;
 }
 
-/* Tighten typography for <p> and <div> slot content,
- but only direct children of v-col so utility classes work on rows/cols */
-.upper-footer .v-card :deep(.v-col > div),
-.upper-footer :deep(p) {
+/* Normalize typography & spacing inside upper footer column content */
+:deep(.footer-content) {
   font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  margin-top: 0;
 }
 
+:deep(.footer-content > div),
+:deep(.footer-content > p) {
+  margin: 0 0 0.5rem;
+  padding: 0;
+}
+
+/* Upper footer header layout */
 .upper-footer :deep(.header) {
   font-size: 1rem;
   font-weight: bold;
   margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  padding: 0;
 }
 
-.upper-footer :deep(a) {
+/* Footer link styling */
+.upper-footer :deep(a),
+.lower-footer :deep(a) {
   color: inherit;
 }
 
 .lower-footer {
   background-color: #1c1d1f;
   color: #c4ced0;
-}
-
-.lower-footer :deep(a) {
-  color: inherit;
 }
 </style>
