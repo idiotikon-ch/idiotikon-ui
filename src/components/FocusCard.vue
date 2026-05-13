@@ -89,6 +89,11 @@ export default {
   hyphens: none;
 }
 
+/* Default title link styling - no underline on any nested title link */
+.focus-card :deep(.v-card-title a) {
+  text-decoration: none;
+}
+
 /* Direct list - remove padding */
 .focus-card :deep(> .v-list) {
   padding-top: 0;
