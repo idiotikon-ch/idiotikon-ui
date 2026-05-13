@@ -1,13 +1,3 @@
-.v-card-title a {
-  color: rgb(var(--v-theme-linkText));
-  text-decoration: none;
-}
-
-/* Teaser cards: no colored title by card's <a> wrapper */
-.v-card.teaser .v-card-title {
-  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
-}
-
 /* Semantic typography overrides - preserve h3 sizing from pre-md3 */
 .text-h3 {
   font-size: 1.75rem !important;
@@ -51,16 +41,18 @@
   color: rgb(var(--v-theme-primary));
 }
 
-/* Utility: remove top margin from a button that sits at the top of a FocusCard */
-.top-btn {
-  margin-top: 0 !important;
-}
 
 /* Underline links in content text */
 p a,
 .v-card-text a,
 .content-section a {
   text-decoration: underline !important;
+}
+
+/* Link-styled card title: apply to a card/container for .v-card-title styling */
+.link-title .v-card-title a {
+  color: rgb(var(--v-theme-linkText));
+  text-decoration: underline;
 }
 
 /* White border tile variant - for cards with white borders and custom spacing */
@@ -92,11 +84,17 @@ p a,
   padding: 1rem 0;
 }
 
+/* Teaser cards: no colored title by card's <a> wrapper */
+.v-card.teaser .v-card-title {
+  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+}
+
 /* Style links in card text content */
 .v-card-text a {
   color: rgb(var(--v-theme-primary));
 }
 
+/* Sidebar cards */
 .v-card.sidebar {
   margin-bottom: 1.5rem;
   padding: 1.5rem;  
@@ -119,4 +117,12 @@ p a,
 
 .v-card.sidebar .v-img{
   margin-top: 1.5rem;
+}
+
+/* Sidebar text like FocusCard text and paragraphs */
+.v-card.sidebar :deep(p) {
+  color: #454545;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0.5rem;
 }

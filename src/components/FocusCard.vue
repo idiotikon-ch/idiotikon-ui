@@ -155,6 +155,12 @@ export default {
   margin-top: 1rem;
 }
 
+/* Remove top margin when button is first child or explicitly marked */
+.focus-card :deep(> .v-btn:first-child),
+.focus-card :deep(> .v-btn.top-btn) {
+  margin-top: 0;
+}
+
 /* v-card-actions styling - make buttons behave like direct children */
 .focus-card :deep(> .v-card-actions) {
   padding: 1rem 0 0 0;
