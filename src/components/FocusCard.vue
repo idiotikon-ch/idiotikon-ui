@@ -153,7 +153,6 @@ export default {
 /* Direct v-btn children (flagship pattern - button as direct child) */
 .focus-card :deep(> .v-btn) {
   margin-top: 1rem;
-  text-transform: uppercase;
 }
 
 /* v-card-actions styling - make buttons behave like direct children */
@@ -164,7 +163,6 @@ export default {
 .focus-card :deep(> .v-card-actions .v-btn) {
   margin: 0;
   padding-left: 0;
-  text-transform: uppercase;
 }
 
 /* List items within focus */
