@@ -42,13 +42,6 @@
 }
 
 
-/* Underline links in content text */
-p a,
-.v-card-text a,
-.content-section a {
-  text-decoration: underline !important;
-}
-
 /* Link-styled card title: apply to a card/container for .v-card-title styling */
 .link-title .v-card-title a {
   color: rgb(var(--v-theme-linkText));
@@ -89,6 +82,11 @@ p a,
   color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
 }
 
+/* Teaser hover overlay: use neutral gray instead of inherited link color */
+.v-card.teaser .v-card__overlay {
+  background: black;
+}
+
 /* Style links in card text content */
 .v-card-text a {
   color: rgb(var(--v-theme-primary));
@@ -125,4 +123,11 @@ p a,
   margin-top: 0;
   margin-bottom: 0;
   padding-bottom: 0.5rem;
+}
+
+/* Underline links in sidebar content text (not titles) */
+.v-card.sidebar p a,
+.v-card.sidebar .v-card-text a,
+.v-card.sidebar .content-section a {
+  text-decoration: underline;
 }

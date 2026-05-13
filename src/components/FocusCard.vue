@@ -94,6 +94,13 @@ export default {
   text-decoration: none;
 }
 
+/* Underline links in content text (not titles) */
+.focus-card :deep(p a),
+.focus-card :deep(.v-card-text a),
+.focus-card :deep(.content-section a) {
+  text-decoration: underline;
+}
+
 /* Direct list - remove padding */
 .focus-card :deep(> .v-list) {
   padding-top: 0;
