@@ -19,28 +19,9 @@
   font-size: 1rem !important;
 }
 
-/* Nested card spacing - flush left with vertical spacing only */
-.v-card .v-card {
-  margin: 1.5rem 0;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  /* Nested card titles should be medium weight */
-  .v-card-title {
-    font-weight: 500;
-  }
-}
-
 .read-more {
   color: rgb(var(--v-theme-primary));
 }
-
 
 /* Link-styled card title: apply to a card/container for .v-card-title styling */
 .link-title .v-card-title a {
@@ -48,7 +29,10 @@
   text-decoration: underline;
 }
 
-/* White border tile variant - for cards with white borders and custom spacing */
+
+/* WHITE BORDER TILE VARIANT */
+/* - for cards with white borders and custom spacing */
+
 .v-card.white-border-tile {
   padding: 1.25rem;
 }
@@ -77,22 +61,32 @@
   padding: 1rem 0;
 }
 
-/* Teaser cards: no colored title by card's <a> wrapper */
+/* Style links in card text content (not titles) */
+.v-card.white-border-tile .v-card-text a {
+  text-decoration: underline;
+  color: rgb(var(--v-theme-primary));
+}
+
+.v-card.white-border-tile .v-card-title a {
+  text-decoration: none;
+}
+
+
+/* TEASER CARDS */
+
+/* No colored title by card's <a> wrapper */
 .v-card.teaser .v-card-title {
   color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
 }
 
-/* Teaser hover overlay: use neutral gray instead of inherited link color */
+/* hover overlay: use neutral gray instead of inherited link color */
 .v-card.teaser .v-card__overlay {
   background: black;
 }
 
-/* Style links in card text content */
-.v-card-text a {
-  color: rgb(var(--v-theme-primary));
-}
 
-/* Sidebar cards */
+/* SIDEBAR CARDS */
+
 .v-card.sidebar {
   margin-bottom: 1.5rem;
   padding: 1.5rem;  
@@ -130,4 +124,5 @@
 .v-card.sidebar .v-card-text a,
 .v-card.sidebar .content-section a {
   text-decoration: underline;
+  color: rgb(var(--v-theme-primary));
 }
