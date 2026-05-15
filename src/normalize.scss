@@ -148,3 +148,197 @@
   text-decoration: underline;
   color: rgb(var(--v-theme-primary));
 }
+
+
+
+
+/* ===========================================
+   FOCUS CARD
+   Main content card with generous spacing, styled children, and nested card support.
+   Use class="focus-card" on any v-card, or use the FocusCard component.
+   =========================================== */
+
+/* ===========================================
+   BASE - container padding
+   =========================================== */
+.v-card.focus-card {
+  padding: 1.5rem;
+}
+
+/* ===========================================
+   DIRECT CHILDREN - reset padding/margins
+   to maintain uniform edge distance
+   =========================================== */
+.v-card.focus-card > .v-card-title,
+.v-card.focus-card > .v-card-subtitle,
+.v-card.focus-card > .v-card-text,
+.v-card.focus-card > .v-card-actions,
+.v-card.focus-card > .v-card-item,
+.v-card.focus-card > .v-list {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* v-card-item gets padding-top/bottom too when title passed as prop */
+.v-card.focus-card > .v-card-item {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Remove margins from direct v-row child */
+.v-card.focus-card > .v-row {
+  margin: 0;
+}
+
+/* Tabs: v-card-text inside tabs is still top-level FocusCard content */
+.v-card.focus-card > .v-tabs-window .v-tabs-window-item > .v-card-text,
+.v-card.focus-card > .v-tabs-window .v-tabs-window-item > .v-card-title {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* ===========================================
+   TITLE & SUBTITLE - top-level sizing
+   =========================================== */
+
+/* Main title: h3-sized, generous bottom spacing */
+.v-card.focus-card > .v-card-title,
+.v-card.focus-card .v-card-title:first-of-type {
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.25;
+  padding-top: 0;
+  padding-bottom: 2rem;
+}
+
+/* Main subtitle */
+.v-card.focus-card > .v-card-subtitle,
+.v-card.focus-card .v-card-subtitle:first-of-type {
+  padding: 0 0 2rem 0;
+  hyphens: none;
+}
+
+/* ===========================================
+   LINKS - underline in content, plain in titles
+   =========================================== */
+
+/* Title links: no underline */
+.v-card.focus-card .v-card-title a {
+  text-decoration: none;
+}
+
+/* Content links: underlined, primary color */
+.v-card.focus-card p a,
+.v-card.focus-card .v-card-text a,
+.v-card.focus-card .content-section a {
+  text-decoration: underline;
+  color: rgb(var(--v-theme-primary));
+}
+
+/* ===========================================
+   CONTENT TEXT - color and paragraph spacing
+   =========================================== */
+.v-card.focus-card .v-card-text {
+  color: #454545;
+  font-size: 1rem;
+}
+
+.v-card.focus-card p {
+  color: #454545;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0.5rem;
+}
+
+/* ===========================================
+   NESTED CARDS - spacing, title sizing
+   =========================================== */
+
+/* Direct child cards: bottom-only margin */
+.v-card.focus-card > .v-card {
+  margin: 0 0 1.5rem 0;
+}
+
+.v-card.focus-card > .v-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Nested card titles: h5-sized, medium weight */
+.v-card.focus-card .v-card .v-card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: .0125em;
+  padding-bottom: 6px;
+}
+
+.v-card.focus-card .v-card .v-card-subtitle {
+  font-size: 1rem;
+  padding-bottom: 0;
+}
+
+.v-card.focus-card .v-card .v-card-text {
+  padding-top: 6px;
+}
+
+/* ===========================================
+   LISTS - cards inside v-list
+   =========================================== */
+
+/* Direct list - remove padding */
+.v-card.focus-card > .v-list {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Cards inside list - remove all margins but add vertical spacing */
+.v-card.focus-card > .v-list .v-card {
+  margin: 0 0 1rem 0;
+}
+
+.v-card.focus-card > .v-list .v-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Clickable cards in list: pointer + hover shadow */
+.v-card.focus-card > .v-list .v-card[link],
+.v-card.focus-card > .v-list .v-card.v-card--link {
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.v-card.focus-card > .v-list .v-card[link]:hover,
+.v-card.focus-card > .v-list .v-card.v-card--link:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.v-card.focus-card .v-list-item {
+  padding: 1rem 0;
+}
+
+/* ===========================================
+   BUTTONS & ACTIONS
+   =========================================== */
+
+/* Direct v-btn: spaced below content (flagship pattern) */
+.v-card.focus-card > .v-btn {
+  margin-top: 1rem;
+}
+
+/* No top margin when button is first child or marked .top-btn */
+.v-card.focus-card > .v-btn:first-child,
+.v-card.focus-card .v-btn.top-btn {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: rgb(var(--v-theme-primary));
+}
+
+/* v-card-actions: flush left & make buttons behave like direct children */
+.v-card.focus-card > .v-card-actions {
+  padding: 1rem 0 0 0;
+}
+
+.v-card.focus-card > .v-card-actions .v-btn {
+  margin: 0;
+  padding-left: 0;
+}
