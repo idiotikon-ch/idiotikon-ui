@@ -19,8 +19,21 @@
   font-size: 1rem !important;
 }
 
+
+/* UTILITY CLASSES */
+
+/* "Read more" link style for teaser cards */
 .read-more {
   color: rgb(var(--v-theme-primary));
+}
+
+.read-more-link {
+  text-decoration: underline;
+}
+
+/* Force default surface text color on links (e.g. author names) */
+.text-on-surface {
+  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
 }
 
 /* Link-styled card title: apply to a card/container for .v-card-title styling */
@@ -61,7 +74,7 @@
   padding: 1rem 0;
 }
 
-/* Style links in card text content (not titles) */
+/* Links in white-border-tile content */
 .v-card.white-border-tile .v-card-text a {
   text-decoration: underline;
   color: rgb(var(--v-theme-primary));
@@ -79,7 +92,7 @@
   color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
 }
 
-/* hover overlay: use neutral gray instead of inherited link color */
+/* Hover overlay: use neutral gray instead of inherited link color */
 .v-card.teaser .v-card__overlay {
   background: black;
 }
@@ -89,7 +102,7 @@
 
 .v-card.sidebar {
   margin-bottom: 1.5rem;
-  padding: 1.5rem;  
+  padding: 1.5rem;
 }
 
 .v-card.sidebar .v-card-title,
@@ -98,16 +111,16 @@
   padding-right: 0;
 }
 
-.v-card.sidebar .v-card-title{
+.v-card.sidebar .v-card-title {
   padding-top: 0;
   font-weight: 500;
 }
 
-.v-card.sidebar .v-card-text{
+.v-card.sidebar .v-card-text {
   padding-top: 0.8rem;
 }
 
-.v-card.sidebar .v-img{
+.v-card.sidebar .v-img {
   margin-top: 1.5rem;
 }
 
@@ -119,7 +132,7 @@
   padding-bottom: 0.5rem;
 }
 
-/* Underline links in sidebar content text (not titles) */
+/* Links in sidebar content */
 .v-card.sidebar p a,
 .v-card.sidebar .v-card-text a,
 .v-card.sidebar .content-section a {

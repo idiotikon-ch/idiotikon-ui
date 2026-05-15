@@ -152,8 +152,9 @@ export default {
 </script>
 
 <style scoped>
-.read-more-link {
-  text-decoration: underline;
+/* Teaser: tighten spacing between text and read-more action */
+.teaser :deep(.v-card-text) {
+  padding-bottom: 0 !important;
 }
 
 /* Detail view: strip all card chrome so parent FocusCard styles apply cleanly */
