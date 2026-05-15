@@ -106,7 +106,9 @@
 }
 
 .v-card.sidebar .v-card-title,
-.v-card.sidebar .v-card-text {
+.v-card.sidebar .v-card-subtitle,
+.v-card.sidebar .v-card-text,
+.v-card.sidebar .v-card-actions {
   padding-left: 0;
   padding-right: 0;
 }
@@ -118,6 +120,13 @@
 
 .v-card.sidebar .v-card-text {
   padding-top: 0.8rem;
+  color: #454545;
+  font-size: 1rem;
+}
+
+.v-card.sidebar .v-card-actions {
+  padding-top: 1rem;
+  padding-bottom: 0;
 }
 
 .v-card.sidebar .v-img {
