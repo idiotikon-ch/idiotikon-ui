@@ -1,15 +1,12 @@
 <template>
-  <!-- Detail View -->
+  <!-- Detail View: Focus Card for slug, White Border Tile in overview -->
   <v-card
     v-if="!teaserOnly"
-    :flat="detailView"
-    :class="detailView ? 'detail-view' : 'white-border-tile'"
+    :class="detailView ? 'focus-card' : 'white-border-tile'"
   >
-    <v-card-actions v-if="backLink">
-      <v-btn @click="$emit('back')">
-        {{ backText }}
-      </v-btn>
-    </v-card-actions>
+    <v-btn v-if="backLink" @click="$emit('back')" class="top-btn">
+      {{ backText }}
+    </v-btn>
 
     <v-card-title :class="detailView ? 'text-h3' : 'text-h5'">
       <a v-if="url && titleLink" :href="url" @click.prevent="handleTitleClick">
@@ -42,9 +39,7 @@
     :to="isInternalUrl ? url : undefined"
     :href="!isInternalUrl && url ? url : undefined"
     :link="!!url"
-    :hover="!!url"
     @click="handleCardClick"
-    variant="elevated"
     class="white-border-tile teaser"
   >
     <v-card-title class="text-h5">
@@ -151,16 +146,3 @@ export default {
 }
 </script>
 
-<style scoped>
-/* Teaser: tighten spacing between text and read-more action */
-.teaser :deep(.v-card-text) {
-  padding-bottom: 0 !important;
-}
-
-/* Detail view: strip all card chrome so parent FocusCard styles apply cleanly */
-.detail-view {
-  padding: 0;
-  background: transparent;
-}
-
-</style>

@@ -107,6 +107,11 @@
   background: black;
 }
 
+/* Tighten spacing between text and read-more action */
+.v-card.teaser .v-card-text {
+  padding-bottom: 0;
+}
+
 
 /* SIDEBAR CARDS */
 
@@ -190,9 +195,11 @@
   padding-bottom: 0;
 }
 
-/* Remove margins from direct v-row child */
-.v-card.focus-card > .v-row {
+/* Remove margins & padding from direct v-row / v-col child */
+.v-card.focus-card > .v-row,
+.v-card.focus-card > .v-row > .v-col {
   margin: 0;
+  padding: 0;
 }
 
 /* Tabs: v-card-text inside tabs is still top-level FocusCard content */
@@ -242,10 +249,8 @@
 .v-card.focus-card .v-card-text {
   color: #454545;
   font-size: 1rem;
-}
-
-/* Sequential v-card-text: avoid double spacing */
-.v-card.focus-card > .v-card-text + .v-card-text {
+  padding-left: 0;
+  padding-right: 0;
   padding-top: 0;
 }
 
