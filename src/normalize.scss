@@ -244,6 +244,11 @@
   font-size: 1rem;
 }
 
+/* Sequential v-card-text: avoid double spacing */
+.v-card.focus-card > .v-card-text + .v-card-text {
+  padding-top: 0;
+}
+
 .v-card.focus-card p {
   color: #454545;
   margin-top: 0;
