@@ -195,11 +195,22 @@
   padding-bottom: 0;
 }
 
-/* Remove margins & padding from direct v-row / v-col child */
+/* Remove margins & padding from direct v-row / v-col children */
 .v-card.focus-card > .v-row,
 .v-card.focus-card > .v-row > .v-col {
   margin: 0;
   padding: 0;
+}
+
+/* Grid alignment: treat elements inside rows/cols like direct children */
+.v-card.focus-card > .v-row > .v-col > .v-card-title,
+.v-card.focus-card > .v-row > .v-col > .v-card-subtitle,
+.v-card.focus-card > .v-row > .v-col > .v-card-text,
+.v-card.focus-card > .v-row > .v-col > .v-card-actions,
+.v-card.focus-card > .v-row > .v-col > .v-card-item,
+.v-card.focus-card > .v-row > .v-col > .v-list {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Tabs: v-card-text inside tabs is still top-level FocusCard content */
