@@ -9,7 +9,7 @@
     </v-btn>
 
     <v-card-title :class="detailView ? 'text-h3' : 'text-h5'">
-      <a v-if="url && titleLink" :href="url" @click.prevent="handleTitleClick">
+      <a v-if="url && titleLink" :href="url" @click="handleTitleClick">
         {{ title }}
       </a>
       <span v-else>{{ title }}</span>
@@ -42,7 +42,7 @@
     @click="handleCardClick"
     class="white-border-tile teaser"
   >
-    <v-card-title class="text-h5">
+    <v-card-title>
       {{ title }}
     </v-card-title>
 
@@ -133,7 +133,12 @@ function handleCardClick() {
   }
 }
 
-function handleTitleClick() {
+function handleTitleClick(event: MouseEvent) {
+  // Allow ctrl/meta/middle-click to open in new tab natively
+  if (event.ctrlKey || event.metaKey || event.button === 1) {
+    return
+  }
+  event.preventDefault()
   if (props.url) {
     emit('title-click', props.url)
   }
