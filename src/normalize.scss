@@ -37,6 +37,11 @@
   text-decoration: underline;
 }
 
+/* Tab menu: button grid for registers */
+.tab-menu .v-btn {
+  margin: 0.25rem;
+}
+
 /* Force default surface text color on links (e.g. author names) */
 .text-on-surface {
   color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
@@ -164,6 +169,7 @@
 
 .v-card.focus-card {
   padding: 1.5rem;
+  overflow: visible;
 }
 
 /* DIRECT CHILDREN */
@@ -251,6 +257,7 @@
 /* Direct child cards: bottom-only margin */
 .v-card.focus-card > .v-card {
   margin: 0 0 1.5rem 0;
+  overflow: visible;
 }
 
 .v-card.focus-card > .v-card:last-child {
