@@ -2,7 +2,7 @@
   <v-hover v-slot="{ isHovering, props: hoverProps }">
     <v-card v-bind="hoverProps" class="flex h-100 w-100" @click="handleClick">
       <v-img cover :src="imgUrl" class="h-100" :gradient="effectiveGradient">
-        <div class="curtain-content text-white h-100 px-5 pt-5 pb-2"
+        <div class="curtain-content text-white h-100 px-5 pt-5 pb-2 d-flex flex-column"
           :class="isActive(isHovering) ? 'bg-primary' : ''"
           :style="{
             transform: isActive(isHovering) ? '' : 'translateY(45%)',
@@ -10,7 +10,7 @@
           }">
           <div class="text-center text-h5 font-weight-bold" v-html="title" />
           <div v-if="content" class="text-body-medium mt-2" :style="{ opacity: isActive(isHovering) ? 1 : 0 }" v-html="content" />
-          <div v-if="actionText" class="text-body-medium font-weight-bold mt-2" v-html="actionText" />
+          <div v-if="actionText" class="text-body-medium font-weight-bold mt-auto mb-2" v-html="actionText" />
         </div>
       </v-img>
     </v-card>
