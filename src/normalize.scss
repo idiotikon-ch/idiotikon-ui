@@ -189,6 +189,9 @@
 .v-card.focus-card {
   padding: 1.5rem;
   overflow: visible;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
 }
 
 /* DIRECT CHILDREN */
@@ -295,7 +298,9 @@
   overflow: visible;
 }
 
-.v-card.focus-card > .v-card:last-child {
+/* Remove bottom margin from last nested card */
+.v-card.focus-card > .v-card:last-child,
+.v-card.focus-card > .v-card:not(:has(~ .v-card)) {
   margin-bottom: 0;
 }
 
@@ -356,9 +361,11 @@
 
 /* BUTTONS & ACTIONS */
 
-/* Direct v-btn: spaced below content (flagship pattern) */
+/* Direct v-btn: pinned to bottom with space below content (flagship pattern) */
 .v-card.focus-card > .v-btn {
-  margin-top: 1rem;
+  align-self: flex-start;
+  margin-top: 1.5rem;
+  flex-shrink: 0;
 }
 
 /* No top margin when button is first child or marked .top-btn */
