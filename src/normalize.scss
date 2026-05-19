@@ -34,7 +34,7 @@
 }
 
 .read-more-link {
-  text-decoration: underline;
+  @include content-link;
 }
 
 /* Tab menu: button grid for registers */
@@ -57,33 +57,45 @@
 /* WHITE BORDER TILE VARIANT */
 /* - for cards with white borders and custom spacing */
 
-.v-card.white-border-tile {
+.v-card.white-border-tile,
+.v-card.focus-card .v-card.white-border-tile {
   padding: 1.25rem;
 }
 
-.v-card.white-border-tile.teaser {
+.v-card.white-border-tile.teaser,
+.v-card.focus-card .v-card.white-border-tile.teaser {
   padding: 1rem;
+}
+
+.v-card.white-border-tile > .v-row,
+.v-card.white-border-tile > .v-row > .v-col {
+  margin: 0;
+  padding: 0;
 }
 
 .v-card.white-border-tile .v-card-title,
 .v-card.white-border-tile .v-card-subtitle,
 .v-card.white-border-tile .v-card-text,
-.v-card.white-border-tile .v-card-actions {
+.v-card.white-border-tile .v-card-actions,
+.v-card.focus-card .v-card.white-border-tile .v-card-title,
+.v-card.focus-card .v-card.white-border-tile .v-card-subtitle,
+.v-card.focus-card .v-card.white-border-tile .v-card-text,
+.v-card.focus-card .v-card.white-border-tile .v-card-actions {
   padding: 0;
   margin: 0;
 }
 
-.v-card.white-border-tile .v-card-title {
+.v-card.white-border-tile .v-card-title,
+.v-card.focus-card .v-card.white-border-tile .v-card-title {
   padding-bottom: 0.25rem;
 }
 
-.v-card.white-border-tile .v-card-subtitle {
+.v-card.white-border-tile .v-card-subtitle,
+.v-card.focus-card .v-card.white-border-tile .v-card-subtitle {
   padding-bottom: 0.5rem;
 }
 
-.v-card.white-border-tile .v-card-text {
-  padding: 1rem 0;
-}
+
 
 /* Links in white-border-tile content */
 .v-card.white-border-tile .v-card-text a {
