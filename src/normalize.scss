@@ -110,12 +110,14 @@
 /* TEASER CARDS */
 
 /* No colored title by card's <a> wrapper */
-.v-card.teaser .v-card-title {
+.v-card.teaser .v-card-title,
+.v-card.content-tile .v-card-title {
   color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
 }
 
 /* Hover overlay: use neutral gray instead of inherited link color */
-.v-card.teaser .v-card__overlay {
+.v-card.teaser .v-card__overlay,
+.v-card.content-tile .v-card__overlay {
   background: black;
 }
 
@@ -311,9 +313,12 @@
   padding-bottom: 0;
 }
 
+/*
 .v-card.focus-card .v-card .v-card-text {
   padding-top: 6px;
 }
+*/
+
 
 /* LISTS */
 /* cards inside v-list */
@@ -365,8 +370,8 @@
 }
 
 /* v-card-actions: flush left & make buttons behave like direct children */
-.v-card.focus-card > .v-card-actions {
-  padding: 1rem 0 0 0;
+.v-card.focus-card .v-card-actions {
+  padding: 0;
 }
 
 .v-card.focus-card > .v-card-actions .v-btn {
