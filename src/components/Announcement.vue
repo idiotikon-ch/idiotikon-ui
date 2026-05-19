@@ -1,36 +1,19 @@
 <template>
-  <!-- Detail View: Focus Card for slug, White Border Tile in overview -->
-  <v-card
-    v-if="!teaserOnly"
-    :class="detailView ? 'focus-card' : 'white-border-tile'"
-  >
+  <!-- Detail View: FocusCard -->
+  <FocusCard v-if="!teaserOnly && detailView">
     <v-btn v-if="backLink" @click="$emit('back')" class="top-btn">
       {{ backText }}
     </v-btn>
+    <AnnouncementBody :title-class="'text-h3'" v-bind="sharedProps">
+      <template #content><slot name="content"><div v-html="content" /></slot></template>
+    </AnnouncementBody>
+  </FocusCard>
 
-    <v-card-title :class="detailView ? 'text-h3' : 'text-h5'">
-      <a v-if="url && titleLink" :href="url" @click="handleTitleClick">
-        {{ title }}
-      </a>
-      <span v-else>{{ title }}</span>
-    </v-card-title>
-
-    <v-card-subtitle v-if="date">
-      {{ date }}
-    </v-card-subtitle>
-
-    <v-row>
-      <v-col :cols="imgUrl ? 12 : 12" :sm="imgUrl ? 6 : 12" :md="imgUrl ? 8 : 12">
-        <v-card-text>
-          <slot name="content">
-            <div v-html="content" />
-          </slot>
-        </v-card-text>
-      </v-col>
-      <v-col v-if="imgUrl" cols="12" sm="6" md="4">
-        <v-img :src="imgUrl" cover />
-      </v-col>
-    </v-row>
+  <!-- List View: White Border Tile -->
+  <v-card v-else-if="!teaserOnly" class="white-border-tile">
+    <AnnouncementBody :title-class="'text-h5'" v-bind="sharedProps">
+      <template #content><slot name="content"><div v-html="content" /></slot></template>
+    </AnnouncementBody>
   </v-card>
 
   <!-- Teaser View -->
@@ -42,20 +25,12 @@
     @click="handleCardClick"
     class="white-border-tile teaser"
   >
-    <v-card-title>
-      {{ title }}
-    </v-card-title>
-
-    <v-card-subtitle v-if="date">
-      {{ date }}
-    </v-card-subtitle>
-
+    <v-card-title>{{ title }}</v-card-title>
+    <v-card-subtitle v-if="date">{{ date }}</v-card-subtitle>
     <v-img v-if="imgUrl" :src="imgUrl" cover />
-
     <v-card-text v-if="teaserText">
       <div v-html="teaserText"></div>
     </v-card-text>
-
     <v-card-actions v-if="readMoreText">
       <span class="text-primary read-more-link">{{ readMoreText }}</span>
     </v-card-actions>
@@ -64,6 +39,8 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
+import FocusCard from './FocusCard.vue'
+import AnnouncementBody from './AnnouncementBody.vue'
 
 const props = defineProps({
   title: {
@@ -127,6 +104,15 @@ const isInternalUrl = computed(() => {
   return props.url && props.url.startsWith('/')
 })
 
+const sharedProps = computed(() => ({
+  title: props.title,
+  date: props.date,
+  imgUrl: props.imgUrl,
+  url: props.url,
+  titleLink: props.titleLink,
+  onTitleClick: handleTitleClick,
+}))
+
 function handleCardClick() {
   if (props.url) {
     emit('click', props.url)
@@ -150,4 +136,3 @@ export default {
   name: 'Announcement'
 }
 </script>
-
