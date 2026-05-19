@@ -1,10 +1,80 @@
-/* Convention: content link style used across all card variants */
+/* MIXINS */
+
+/* Content link style used across all card variants */
 @mixin content-link {
   text-decoration: underline;
   color: rgb(var(--v-theme-primary));
 }
 
+/* Shared base styles for all card variants (white-border-tile, sidebar, focus-card) */
+@mixin card-base {
+  /* Child element padding reset */
+  .v-card-title,
+  .v-card-subtitle,
+  .v-card-text,
+  .v-card-actions,
+  .v-card-item,
+  .v-list {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Row/col resets */
+  > .v-row,
+  > .v-row > .v-col {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Grid alignment: treat elements inside rows/cols like direct children */
+  > .v-row > .v-col > .v-card-title,
+  > .v-row > .v-col > .v-card-subtitle,
+  > .v-row > .v-col > .v-card-text,
+  > .v-row > .v-col > .v-card-actions,
+  > .v-row > .v-col > .v-card-item,
+  > .v-row > .v-col > .v-list {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Tabs: treat tab content like direct children */
+  > .v-tabs-window .v-tabs-window-item > .v-card-text,
+  > .v-tabs-window .v-tabs-window-item > .v-card-title {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Title links: no underline */
+  .v-card-title a {
+    text-decoration: none;
+  }
+
+  /* Content links: underlined, primary color */
+  p a,
+  .v-card-text a,
+  .content-section a {
+    @include content-link;
+  }
+
+  /* Content text color and size */
+  .v-card-text {
+    color: #454545;
+    font-size: 1rem;
+  }
+
+  /* Paragraph normalization */
+  p {
+    color: #454545;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0.5rem;
+  }
+}
+
+
+/* TYPOGRAPHY */
 /* Semantic typography overrides - preserve h3 sizing from pre-md3 */
+
 .text-h3 {
   font-size: 1.75rem !important;
   line-height: 1.25 !important;
@@ -54,11 +124,12 @@
 }
 
 
-/* WHITE BORDER TILE VARIANT */
-/* - for cards with white borders and custom spacing */
+/* WHITE BORDER TILE */
+/* Cards with white borders and custom spacing */
 
 .v-card.white-border-tile,
 .v-card.focus-card .v-card.white-border-tile {
+  @include card-base;
   padding: 1.25rem;
 }
 
@@ -67,20 +138,19 @@
   padding: 1rem;
 }
 
-.v-card.white-border-tile > .v-row,
-.v-card.white-border-tile > .v-row > .v-col {
-  margin: 0;
-  padding: 0;
-}
-
+/* Full child reset (stricter than base: all padding + margin) */
 .v-card.white-border-tile .v-card-title,
 .v-card.white-border-tile .v-card-subtitle,
 .v-card.white-border-tile .v-card-text,
 .v-card.white-border-tile .v-card-actions,
+.v-card.white-border-tile .v-card-item,
+.v-card.white-border-tile .v-list,
 .v-card.focus-card .v-card.white-border-tile .v-card-title,
 .v-card.focus-card .v-card.white-border-tile .v-card-subtitle,
 .v-card.focus-card .v-card.white-border-tile .v-card-text,
-.v-card.focus-card .v-card.white-border-tile .v-card-actions {
+.v-card.focus-card .v-card.white-border-tile .v-card-actions,
+.v-card.focus-card .v-card.white-border-tile .v-card-item,
+.v-card.focus-card .v-card.white-border-tile .v-list {
   padding: 0;
   margin: 0;
 }
@@ -96,18 +166,8 @@
 }
 
 
-
-/* Links in white-border-tile content */
-.v-card.white-border-tile .v-card-text a {
-  @include content-link;
-}
-
-.v-card.white-border-tile .v-card-title a {
-  text-decoration: none;
-}
-
-
-/* TEASER CARDS */
+/* TEASER / CONTENT-TILE */
+/* Modifier styles for linked cards */
 
 /* No colored title by card's <a> wrapper */
 .v-card.teaser .v-card-title,
@@ -130,18 +190,12 @@
 /* SIDEBAR CARDS */
 
 .v-card.sidebar {
+  @include card-base;
   margin-bottom: 1.5rem;
   padding: 1.5rem;
 }
 
-.v-card.sidebar .v-card-title,
-.v-card.sidebar .v-card-subtitle,
-.v-card.sidebar .v-card-text,
-.v-card.sidebar .v-card-actions {
-  padding-left: 0;
-  padding-right: 0;
-}
-
+/* Sidebar-specific overrides */
 .v-card.sidebar .v-card-title {
   padding-top: 0;
   font-weight: 500;
@@ -149,8 +203,6 @@
 
 .v-card.sidebar .v-card-text {
   padding-top: 0.8rem;
-  color: #454545;
-  font-size: 1rem;
 }
 
 .v-card.sidebar .v-card-actions {
@@ -162,7 +214,7 @@
   margin-top: 1.5rem;
 }
 
-/* Sidebar text like FocusCard text and paragraphs */
+/* Sidebar :deep(p) for scoped component content */
 .v-card.sidebar :deep(p) {
   color: #454545;
   margin-top: 0;
@@ -170,40 +222,18 @@
   padding-bottom: 0.5rem;
 }
 
-/* Links in sidebar content */
-.v-card.sidebar p a,
-.v-card.sidebar .v-card-text a,
-.v-card.sidebar .content-section a {
-  @include content-link;
-}
 
-
-/* ========== FOCUS CARD ========== */
+/* FOCUS CARD */
 /* Main content card with normalized spacing and nested card support. */
-/* Use class="focus-card" on any v-card, or use the FocusCard component. */
-
 
 /* BASE */
-/* container padding */
-
 .v-card.focus-card {
+  @include card-base;
   padding: 1.5rem;
   overflow: visible;
   display: flex;
   flex-direction: column;
   row-gap: 0;
-}
-
-/* DIRECT CHILDREN */
-/* reset padding/margins to maintain uniform edge distance */
-.v-card.focus-card > .v-card-title,
-.v-card.focus-card > .v-card-subtitle,
-.v-card.focus-card > .v-card-text,
-.v-card.focus-card > .v-card-actions,
-.v-card.focus-card > .v-card-item,
-.v-card.focus-card > .v-list {
-  padding-left: 0;
-  padding-right: 0;
 }
 
 /* v-card-item gets padding-top/bottom too when title passed as prop */
@@ -212,33 +242,7 @@
   padding-bottom: 0;
 }
 
-/* Remove margins & padding from direct v-row / v-col children */
-.v-card.focus-card > .v-row,
-.v-card.focus-card > .v-row > .v-col {
-  margin: 0;
-  padding: 0;
-}
-
-/* Grid alignment: treat elements inside rows/cols like direct children */
-.v-card.focus-card > .v-row > .v-col > .v-card-title,
-.v-card.focus-card > .v-row > .v-col > .v-card-subtitle,
-.v-card.focus-card > .v-row > .v-col > .v-card-text,
-.v-card.focus-card > .v-row > .v-col > .v-card-actions,
-.v-card.focus-card > .v-row > .v-col > .v-card-item,
-.v-card.focus-card > .v-row > .v-col > .v-list {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* Tabs: v-card-text inside tabs is still top-level FocusCard content */
-.v-card.focus-card > .v-tabs-window .v-tabs-window-item > .v-card-text,
-.v-card.focus-card > .v-tabs-window .v-tabs-window-item > .v-card-title {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 /* TITLE & SUBTITLE */
-/* top-level sizing */
 
 /* Main title: h3-sized, generous bottom spacing */
 .v-card.focus-card > .v-card-title,
@@ -257,40 +261,14 @@
   hyphens: none;
 }
 
-/* LINKS */
-/* underline in content, plain in titles */
-
-/* Title links: no underline */
-.v-card.focus-card .v-card-title a {
-  text-decoration: none;
-}
-
-/* Content links: underlined, primary color */
-.v-card.focus-card p a,
-.v-card.focus-card .v-card-text a,
-.v-card.focus-card .content-section a {
-  @include content-link;
-}
-
 /* CONTENT TEXT */
-/* color and paragraph spacing */
 .v-card.focus-card .v-card-text {
-  color: #454545;
-  font-size: 1rem;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
 }
 
-.v-card.focus-card p {
-  color: #454545;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-bottom: 0.5rem;
-}
-
 /* NESTED CARDS */
-/* spacing, title sizing */
 
 /* Direct child cards: bottom-only margin */
 .v-card.focus-card > .v-card {
@@ -318,15 +296,7 @@
   padding-bottom: 0;
 }
 
-/*
-.v-card.focus-card .v-card .v-card-text {
-  padding-top: 6px;
-}
-*/
-
-
 /* LISTS */
-/* cards inside v-list */
 
 /* Direct list - remove padding */
 .v-card.focus-card > .v-list {
