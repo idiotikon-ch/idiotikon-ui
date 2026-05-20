@@ -108,7 +108,11 @@ props.items.forEach((item, index) => {
   }
 })
 
-const panel = ref<number | number[]>(openInitial.length ? openInitial : [])
+// Initialize: hash takes priority, then item.open flags
+const panel = ref<number | number[]>(
+  props.route?.hash ? getIndex(props.route.hash) : (openInitial.length ? openInitial : [])
+)
+// const panel = ref<number | number[]>(openInitial.length ? openInitial : [])
 
 // Hash navigation support (optional, only if route is provided)
 onMounted(async () => {
@@ -129,10 +133,17 @@ if (props.route) {
 
 function getIndex(hash: string): number | number[] {
   if (hash) {
-    return parseInt(hash.slice(2)) - 1
+    const idx = parseInt(hash.slice(2)) - 1
+    return props.multiple ? [idx] : idx
   }
   return openInitial
 }
+// function getIndex(hash: string): number | number[] {
+//   if (hash) {
+//     return parseInt(hash.slice(2)) - 1
+//   }
+//   return openInitial
+// }
 
 function onPanelChange(idx: number, event: any) {
   if (event.value) {

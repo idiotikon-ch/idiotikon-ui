@@ -25,6 +25,12 @@
     padding: 0;
   }
 
+  /* Ensure titles are standard dark color (not inherited gray) */
+  .v-card-title,
+  .v-card-title p {
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  }
+
   /* Title links: no underline */
   .v-card-title a {
     text-decoration: none;
@@ -74,6 +80,14 @@
 
 .text-h6 {
   font-size: 1rem !important;
+}
+
+/* Secondary section title: h4-sized with tighter bottom spacing */
+.section-title {
+  font-size: 1.5rem !important;
+  line-height: 1.25 !important;
+  font-weight: 500 !important;
+  padding-bottom: 1rem !important;
 }
 
 
