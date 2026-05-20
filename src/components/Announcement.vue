@@ -32,7 +32,7 @@
       <div v-html="teaserText"></div>
     </v-card-text>
     <v-card-actions v-if="readMoreText">
-      <span class="text-primary read-more-link">{{ readMoreText }}</span>
+      <span class="link-style">{{ readMoreText }}</span>
     </v-card-actions>
   </v-card>
 </template>

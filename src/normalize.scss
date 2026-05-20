@@ -79,30 +79,47 @@
 
 /* UTILITY CLASSES */
 
+/* "Read more" button style */
+.read-more {
+  color: rgb(var(--v-theme-primary));
+}
+
 /* Link-styled card title: apply to a card/container for .v-card-title styling */
 .link-title .v-card-title a {
   color: rgb(var(--v-theme-linkText));
 }
 
-/* "Read more" link style for teaser cards */
-.read-more {
-  color: rgb(var(--v-theme-primary));
+/* Normalized link color: apply to v-main to reach all links inside main content area */
+.link-color a {
+  color: rgb(var(--v-theme-linkText));
 }
 
-.read-more-link {
+/* Link style for non-link elements */
+.link-style {
   @include content-link;
+  cursor: pointer;
+}
+
+/* Inline link style for markdown-rendered <p> content (preserves italic/bold formatting) */
+.inline-markdown-link > p {
+  display: inline;
+  font-size: 1rem;
+  line-height: 1.5rem !important;
+  color: rgb(var(--v-theme-primary)) !important;
+  padding-bottom: 0 !important;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Default text color (dark gray/black) override: use on links or elements inheriting a non-default color */
+.default-text-color {
+  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
 }
 
 /* Tab menu: button grid for registers */
 .tab-menu .v-btn {
   margin: 0.25rem;
 }
-
-/* Force default surface text color on links (e.g. author names) */
-.text-on-surface {
-  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
-}
-
 
 
 /* WHITE BORDER TILE */
@@ -130,21 +147,39 @@
 .v-card.content-tile,
 .v-card.focus-card .v-card.content-tile {
   @include card-base;
+
+  .v-card-title,
+  .v-card-subtitle,
+  .v-card-text,
+  .v-card-actions {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
-.v-card.content-tile .v-card-item,
-.v-card.focus-card .v-card.content-tile .v-card-item {
-  padding: 1rem;
+.v-card.content-tile .v-card-title,
+.v-card.focus-card .v-card.content-tile .v-card-title {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
 }
 
-/* TEASER / CONTENT-TILE */
-/* Modifier styles for teaser cards */
+/* prevent image from flexing */
+.content-tile .v-img {
+  flex: 0 0 auto;
+}
+
+
+/* TEASER */
 
 .v-card.teaser,
 .v-card.white-border-tile.teaser,
 .v-card.focus-card .v-card.white-border-tile.teaser {
   padding: 1rem;
 }
+
+
+/* LINKED CARDS */
+/* Modifier styles for linked cards (with <a> wrapper) */
 
 /* No colored title by card's <a> wrapper */
 .v-card.teaser .v-card-title,
@@ -278,15 +313,15 @@
   align-self: flex-start;
   margin-top: 1.5rem;
   flex-shrink: 0;
+  color: rgb(var(--v-theme-linkText));
 }
 
 /* No top margin when button is first child or marked .top-btn */
-.v-card.focus-card > .v-btn:first-child,
+.v-btn.top-btn,
 .v-card.focus-card .v-btn.top-btn,
-.v-btn.top-btn {
+.v-card.focus-card > .v-btn:first-child {
   margin-top: 0;
   margin-bottom: 1.5rem;
-  color: rgb(var(--v-theme-primary));
 }
 
 .v-card.focus-card > .v-card-actions .v-btn {

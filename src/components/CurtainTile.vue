@@ -1,6 +1,6 @@
 <template>
   <v-hover v-slot="{ isHovering, props: hoverProps }">
-    <v-card v-bind="hoverProps" class="flex h-100 w-100" @click="handleClick">
+    <v-card v-bind="hoverProps" class="flex h-100 w-100" :href="href" @click="handleClick">
       <v-img cover :src="imgUrl" class="h-100" :gradient="effectiveGradient">
         <div class="curtain-content text-white h-100 px-5 pt-5 pb-2 d-flex flex-column"
           :class="isActive(isHovering) ? 'bg-primary' : ''"
@@ -26,6 +26,7 @@ const props = defineProps<{
   gradient?: string
   /** External active state (e.g., from viewport tracking in consumer) */
   active?: boolean
+  href?: string
 }>()
 
 const defaultGradient = 'rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)'
