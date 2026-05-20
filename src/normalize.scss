@@ -152,15 +152,19 @@
   .v-card-subtitle,
   .v-card-text,
   .v-card-actions {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* apply to text part below the image */
+  .content-tile-body {
+    padding: 1rem;
   }
 }
 
 .v-card.content-tile .v-card-title,
 .v-card.focus-card .v-card.content-tile .v-card-title {
   padding-bottom: 0.5rem;
-  padding-top: 0.5rem;
 }
 
 /* prevent image from flexing */
