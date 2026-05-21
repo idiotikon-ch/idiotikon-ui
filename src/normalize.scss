@@ -179,8 +179,8 @@
   /* List normalization (CMS/markdown rendered lists) */
   ul, ol {
     padding-inline-start: 0;
-    margin-left: 20px;
-    margin-bottom: 12px;
+    margin-left: 1.25rem;
+    margin-bottom: 0.75rem;
   }
 
   ul li p {
@@ -315,8 +315,8 @@
   }
 
   th, td {
-    padding-right: 10px;
-    padding-bottom: 10px;
+    padding-right: 0.625rem;
+    padding-bottom: 0.625rem;
     font-size: 1rem;
     vertical-align: top;
     line-height: 1.5;
@@ -333,13 +333,13 @@
 
 .table-scrollable::-webkit-scrollbar {
   -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
 }
 
 .table-scrollable::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  border: 3px solid #fff;
+  border-radius: 0.5rem;
+  border: 0.875rem solid #fff;
   background-color: rgba(0, 0, 0, .3);
 }
 
@@ -523,7 +523,7 @@
 
 .v-card.focus-card > .v-list .v-card[link]:hover,
 .v-card.focus-card > .v-list .v-card.v-card--link:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
 }
 
 .v-card.focus-card .v-list-item {
