@@ -1,7 +1,10 @@
+
+/* TODO: override scoped & slot issues: several scss (cards, utils, typography)? */
+/* TODO: defaults.ts? are defaults everywhere, bzw. where do we style idiotikon-btn? */
+
+
 /* MIXINS */
 
-
-/* TODO: defaults.ts? are defaults everywhere, bzw. where do we style idiotikon-btn? */
 /* Content link style used across all card variants */
 @mixin content-link {
   text-decoration: underline;
@@ -70,25 +73,47 @@
 
 /* Typography mixins — pass true for !important (Vuetify overrides, section titles) */
 @mixin text-h3($important: false) {
-  font-size: 1.75rem if($important, !important, null);
-  line-height: 1.25 if($important, !important, null);
-  font-weight: 500 if($important, !important, null);
+  @if $important {
+    font-size: 1.75rem !important;
+    line-height: 1.25 !important;
+    font-weight: 500 !important;
+  } @else {
+    font-size: 1.75rem;
+    line-height: 1.25;
+    font-weight: 500;
+  }
 }
 
 @mixin text-h4($important: false) {
-  font-size: 1.5rem if($important, !important, null);
-  line-height: 1.25 if($important, !important, null);
-  font-weight: 500 if($important, !important, null);
+  @if $important {
+    font-size: 1.5rem !important;
+    line-height: 1.25 !important;
+    font-weight: 500 !important;
+  } @else {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    font-weight: 500;
+  }
 }
 
 @mixin text-h5($important: false) {
-  font-size: 1.25rem if($important, !important, null);
-  line-height: 1.5rem if($important, !important, null);
-  font-weight: 500 if($important, !important, null);
+  @if $important {
+    font-size: 1.25rem !important;
+    line-height: 1.5rem !important;
+    font-weight: 500 !important;
+  } @else {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+  }
 }
 
 @mixin text-h6($important: false) {
-  font-size: 1rem if($important, !important, null);
+  @if $important {
+    font-size: 1rem !important;
+  } @else {
+    font-size: 1rem;
+  }
 }
 
 /* Heading tag reset: inherit styles from parent */
@@ -112,7 +137,7 @@
 .text-h5 { @include text-h5(true); }
 .text-h6 { @include text-h6(true); }
 
-/* Section titles: override focus-card defaults when used inside focus-cards */
+/* Section titles: structure content sections, can override focus-card defaults */
 
 /* Primary h4-sized section title */
 .section-title-h4,
@@ -213,9 +238,40 @@
   margin: 0.25rem;
 }
 
+/* Table cell styling for readable CMS content: apply to app's v-main to normalize tables */
+.markdown-table,
+.markdown-table table th,
+.markdown-table table td {
+  padding-right: 10px;
+  padding-bottom: 10px;
+  font-size: 1rem;
+  vertical-align: top;
+  line-height: 1.5;
+  text-align: left;
+
+}
+
+/* Horizontally scrollable table wrapper for narrow screens */
+.table-scrollable {
+  width: 100%;
+  overflow-y: auto;
+  margin: 0 0 1em;
+}
+
+.table-scrollable::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+}
+
+.table-scrollable::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 3px solid #fff;
+  background-color: rgba(0, 0, 0, .3);
+}
 
 /* PREVIEW TILE */
-/* Cards with white borders and custom spacing, used as preview of pages in overviews */
+/* Cards with white borders and custom spacing, used as page preview in overviews */
 
 .v-card.preview-tile,
 .v-card.focus-card .v-card.preview-tile {
@@ -234,7 +290,7 @@
 }
 
 
-/* CONTENT-TILE */
+/* CONTENT TILE */
 
 .v-card.content-tile,
 .v-card.focus-card .v-card.content-tile {
