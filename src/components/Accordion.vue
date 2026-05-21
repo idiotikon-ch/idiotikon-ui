@@ -138,12 +138,6 @@ function getIndex(hash: string): number | number[] {
   }
   return openInitial
 }
-// function getIndex(hash: string): number | number[] {
-//   if (hash) {
-//     return parseInt(hash.slice(2)) - 1
-//   }
-//   return openInitial
-// }
 
 function onPanelChange(idx: number, event: any) {
   if (event.value) {
@@ -181,6 +175,7 @@ export default {
 
 .v-expansion-panel-text {
   background: #fff;
+  cursor: default;
 }
 
 .accordion-title {
