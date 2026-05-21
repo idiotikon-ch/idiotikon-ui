@@ -10,7 +10,7 @@
   </FocusCard>
 
   <!-- List View: White Border Tile -->
-  <v-card v-else-if="!teaserOnly" class="white-border-tile">
+  <v-card v-else-if="!teaserOnly" class="preview-tile">
     <AnnouncementBody :title-class="'text-h5'" v-bind="sharedProps">
       <template #content><slot name="content"><div v-html="content" /></slot></template>
     </AnnouncementBody>
@@ -23,7 +23,7 @@
     :href="!isInternalUrl && url ? url : undefined"
     :link="!!url"
     @click="handleCardClick"
-    class="white-border-tile teaser"
+    class="preview-tile teaser"
   >
     <v-card-title>{{ title }}</v-card-title>
     <v-card-subtitle v-if="date">{{ date }}</v-card-subtitle>

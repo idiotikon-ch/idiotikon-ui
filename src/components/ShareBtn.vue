@@ -3,7 +3,7 @@
     <template v-slot:activator="{ props }">
       <v-btn v-bind="{ ...props, ...$attrs }" variant="plain" :icon="mdiShareVariant"></v-btn>
     </template>
-    <v-card class="white-border-tile teaser share-card">
+    <v-card class="preview-tile teaser share-card">
       <v-card-title>
         <v-row no-gutters align="center">
           <v-col class="text-wrap" align-self="center"><v-icon :icon="mdiLink" /> {{ title }}</v-col>
