@@ -1,5 +1,5 @@
 
-/* TODO: override scoped & slot issues: several scss (cards, utils, typography)? */
+/* TODO: once finished, split into multiple .scss (cards, utils, typography)? */
 
 /* MIXINS */
 
@@ -171,6 +171,7 @@
   h1 {
     @include text-h3;
     margin: 0;
+    padding-top: 1rem;
     padding-bottom: 1rem;
     letter-spacing: normal;
     color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
@@ -178,6 +179,7 @@
   h2 {
     @include text-h4;
     margin: 0;
+    padding-top: 1rem;
     padding-bottom: 1rem;
     letter-spacing: normal;
     color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
@@ -185,6 +187,7 @@
   h3 {
     @include text-h5;
     margin: 0;
+    padding-top: 0.75rem;
     padding-bottom: 0.75rem;
     letter-spacing: normal;
     color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
@@ -194,6 +197,7 @@
     line-height: 1.5rem;
     font-weight: 500;
     margin: 0;
+    padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     letter-spacing: normal;
     color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
@@ -202,6 +206,7 @@
     @include text-h6;
     font-weight: 500;
     margin: 0;
+    padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     letter-spacing: normal;
     color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
@@ -233,6 +238,7 @@
 
 
 /* TODO: readmore color & linkstyle for titles still needed when buttons & cards get <a> via :to? */
+
 /* "Read more" button style */
 .read-more {
   color: rgb(var(--v-theme-primary));
@@ -464,6 +470,8 @@
 }
 
 /* LISTS */
+
+/* TODO: add list & table styling from local (do like accordion content etc) */
 
 /* Cards inside list - remove all margins but add vertical spacing */
 .v-card.focus-card > .v-list .v-card {
