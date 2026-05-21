@@ -1,7 +1,5 @@
 
 /* TODO: override scoped & slot issues: several scss (cards, utils, typography)? */
-/* TODO: defaults.ts? are defaults everywhere, bzw. where do we style idiotikon-btn? */
-
 
 /* MIXINS */
 
@@ -166,30 +164,68 @@
   @include heading-inherit;
 }
 
-/* TODO: get real h3/4/... */
 /* Markdown content: normalize headings to match card typography */
-.content-section-titles {
-  h1, h2, h3 {
-    @include text-h4;
+/* Each level has a distinct size; h1 capped at page title size (1.75rem) */
+.content-section-titles,
+.v-card.focus-card .content-section-titles {
+  h1 {
+    @include text-h3;
     margin: 0;
+    padding-bottom: 1rem;
     letter-spacing: normal;
     color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
   }
-  h4, h5, h6 {
+  h2 {
+    @include text-h4;
+    margin: 0;
+    padding-bottom: 1rem;
+    letter-spacing: normal;
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  }
+  h3 {
     @include text-h5;
     margin: 0;
+    padding-bottom: 0.75rem;
+    letter-spacing: normal;
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  }
+  h4 {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    letter-spacing: normal;
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  }
+  h5, h6 {
+    @include text-h6;
+    font-weight: 500;
+    margin: 0;
+    padding-bottom: 0.5rem;
     letter-spacing: normal;
     color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
   }
 }
 
-.content-section-titles-h5 {
+/* Override all markdown content titles with text-h5 */
+.content-section-titles-h5,
+.v-card.focus-card .content-section-titles-h5 {
   h1, h2, h3, h4, h5, h6 {
     @include text-h5;
     margin: 0;
+    padding-bottom: 0.5rem;
     letter-spacing: normal;
     color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
   }
+}
+
+/* Custom titles above accordions: less padding with toggle wrapper */
+.accordion-title-h4,
+.v.card.focus-card .accordion-title-h4 {
+  @include text-h4(true);
+  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  padding-bottom: 0 !important;
 }
 
 
