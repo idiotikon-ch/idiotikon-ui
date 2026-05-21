@@ -1,6 +1,9 @@
 <template>
   <v-card 
     :class="['general-tile', tileClass]"
+    :href="isClickable ? link : undefined"
+    :to="isInternalLink ? link : undefined"
+    :target="linkTarget !== '_self' ? linkTarget : undefined"
     :hover="isClickable"
     :ripple="isClickable"
     @click="handleClick"
@@ -68,16 +71,13 @@ const isClickable = computed(() => {
   return !!props.link && props.linkTarget !== 'image'
 })
 
+const isInternalLink = computed(() => {
+  return isClickable.value && props.link.startsWith('/') && props.linkTarget !== '_blank'
+})
+
 function handleClick() {
   if (isClickable.value) {
     emit('click', props.link, props.linkTarget)
-    
-    // Default navigation behavior if parent doesn't handle
-    if (props.linkTarget === '_blank') {
-      window.open(props.link, '_blank')
-    } else {
-      // Parent app should handle internal routing
-    }
   }
 }
 </script>
