@@ -11,7 +11,7 @@
     </v-hover>
 
     <!-- Optional caption -->
-    <div v-if="caption || image.caption" class="image-tile-caption text-center text-caption text-grey-darken-1 mt-2">
+    <div v-if="caption || image.caption" class="image-tile-caption text-center text-caption text-grey-darken-1">
       {{ caption || image.caption }}
     </div>
 
@@ -115,6 +115,7 @@ export default {
 .image-tile-card {
   position: relative;
   cursor: pointer;
+  margin-bottom: 0;
 }
 
 .magnify-btn {
@@ -126,5 +127,6 @@ export default {
 
 .image-tile-caption {
   font-style: italic;
+  margin-top: 0.5rem;
 }
 </style>
