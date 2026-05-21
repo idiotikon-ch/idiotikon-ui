@@ -52,6 +52,6 @@ defineEmits(['click'])
 
 <script lang="ts">
 export default {
-  name: 'ContentTile'
+  name: 'ImageContentTile'
 }
 </script>
