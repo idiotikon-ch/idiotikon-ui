@@ -47,11 +47,30 @@
 }
 
 /* Register list: v-list styled as bulleted list */
-.register-list .v-list-item {
+.list-flush .v-list,
+.v-card.focus-card .list-flush .v-list,
+.v-card.focus-card .list-flush ul {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.register-list-items,
+.v-card.focus-card .register-list-items {
+  margin-left: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  .v-list-item {
+    min-height: auto;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.register-list-bullets .v-list-item {
   list-style-type: disc;
   display: list-item;
   margin-left: 1.25rem;
-  min-height: auto;
 }
 
 /* Tab menu: button grid for registers */
