@@ -45,7 +45,8 @@
   @include content-headings;
 }
 
-/* Override all markdown content titles with text-h5 */
+/* Override all markdown content titles inside a wrapper with text-h5 */
+/* apply e.g. on a content wrapper with unpredictable or dynamic content */
 .content-section-titles-h5,
 .v-card.focus-card .content-section-titles-h5 {
   h1, h2, h3, h4, h5, h6 {

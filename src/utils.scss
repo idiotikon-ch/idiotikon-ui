@@ -46,7 +46,7 @@
   font-variant: small-caps;
 }
 
-/* Register list: v-list styled as bulleted list */
+/* Register list: space left and in between items for readability */
 .list-flush .v-list,
 .v-card.focus-card .list-flush .v-list,
 .v-card.focus-card .list-flush ul {
@@ -63,10 +63,11 @@
   .v-list-item {
     min-height: auto;
     line-height: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 }
 
+/* style v-list as unordered list with bullet points */
 .register-list-bullets .v-list-item {
   list-style-type: disc;
   display: list-item;
