@@ -1,0 +1,189 @@
+/* MIXINS */
+
+/* Content link style used across all card variants */
+@mixin content-link {
+  text-decoration: underline;
+  color: rgb(var(--v-theme-linkText));
+}
+
+/* Typography mixins — pass true for !important (Vuetify overrides, section titles) */
+@mixin text-h3($important: false) {
+  @if $important {
+    font-size: 1.75rem !important;
+    line-height: 1.25 !important;
+    font-weight: 500 !important;
+  } @else {
+    font-size: 1.75rem;
+    line-height: 1.25;
+    font-weight: 500;
+  }
+}
+
+@mixin text-h4($important: false) {
+  @if $important {
+    font-size: 1.5rem !important;
+    line-height: 1.25 !important;
+    font-weight: 500 !important;
+  } @else {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    font-weight: 500;
+  }
+}
+
+@mixin text-h5($important: false) {
+  @if $important {
+    font-size: 1.25rem !important;
+    line-height: 1.5rem !important;
+    font-weight: 500 !important;
+  } @else {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+  }
+}
+
+@mixin text-h6($important: false) {
+  @if $important {
+    font-size: 1rem !important;
+  } @else {
+    font-size: 1rem;
+  }
+}
+
+/* Heading tag reset: make h1-h6 inherit parent styles */
+/* Prevents content-headings from overriding section-title sizes on v-html rendered headings. */
+@mixin heading-inherit {
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    padding: inherit;
+    color: inherit;
+    margin: 0;
+    letter-spacing: normal;
+  }
+}
+
+/* Markdown content: normalize headings to match card typography */
+/* Each level has a distinct size; h1 capped at page title size (1.75rem) */
+@mixin content-headings {
+  h1 {
+    @include text-h3;
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: 0.75rem;
+    letter-spacing: normal;
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  }
+  h2 {
+    @include text-h4;
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: 0.75rem;
+    letter-spacing: normal;
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  }
+  h3 {
+    @include text-h5;
+    margin: 0;
+    padding-top: 0.75rem;
+    padding-bottom: 0.5rem;
+    letter-spacing: normal;
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  }
+  h4 {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.25rem;
+    letter-spacing: normal;
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  }
+  h5, h6 {
+    @include text-h6;
+    font-weight: 500;
+    margin: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.25rem;
+    letter-spacing: normal;
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  }
+}
+
+/* Shared base styles for all card variants (preview-tile, sidebar, focus-card) */
+@mixin card-base {
+  /* Child element padding reset */
+  .v-card-title,
+  .v-card-subtitle,
+  .v-card-text,
+  .v-card-actions,
+  .v-card-item,
+  .v-list {
+    padding: 0;
+  }
+
+  /* Row/col resets */
+  > .v-row,
+  > .v-row > .v-col {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ensure titles are standard dark color (not inherited gray) */
+  .v-card-title,
+  .v-card-title p {
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  }
+
+  /* Title links: no underline */
+  .v-card-title a {
+    text-decoration: none;
+  }
+
+  /* Override Vuetify's medium-emphasis (~0.6) opacity on subtitles with a fixed grey color */
+  .v-card-subtitle,
+  .v-card-subtitle p,
+  .v-card-subtitle a {
+    color: rgb(var(--v-theme-subtitleText)) !important;
+    opacity: 1 !important;
+    font-size: 1rem;
+  }
+
+  /* Content links: underlined, primary color */
+  p a,
+  .v-card-text a,
+  .content-section a {
+    @include content-link;
+  }
+
+  /* Content text color and size */
+  .v-card-text {
+    color: rgb(var(--v-theme-contentText));
+    font-size: 1rem;
+  }
+
+  /* Paragraph normalization */
+  p {
+    color: rgb(var(--v-theme-contentText));
+    margin: 0;
+    padding-bottom: 0.5rem;
+    line-height: 1.5rem;
+  }
+
+  /* List normalization (CMS/markdown rendered lists) */
+  ul, ol {
+    padding-inline-start: 0;
+    margin-left: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  ul li p {
+    padding-bottom: 0 !important;
+  }
+
+  /* Normalize markdown headings h1-h6 */
+  @include content-headings;
+}

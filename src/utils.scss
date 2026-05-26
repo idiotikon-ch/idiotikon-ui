@@ -1,0 +1,97 @@
+@use './mixins.scss' as *;
+
+
+/* UTILITY CLASSES */
+
+/* TODO: readmore color & linkstyle for titles still needed when buttons & cards get <a> via :to? */
+
+/* "Read more" button style */
+.read-more {
+  color: rgb(var(--v-theme-primary));
+}
+/* Link-styled card title: apply to a card/container for .v-card-title styling */
+.link-title .v-card-title a {
+  color: rgb(var(--v-theme-linkText));
+}
+
+/* Normalized link color: apply to app's v-main to reach all links inside main content area */
+.link-color a {
+  color: rgb(var(--v-theme-linkText));
+}
+
+/* Link style for non-link elements */
+.link-style {
+  @include content-link;
+  cursor: pointer;
+}
+
+/* Inline link style for markdown-rendered <p> content (preserves italic/bold formatting) */
+.inline-markdown-link p {
+  display: inline;
+  font-size: 1rem;
+  line-height: 1.5rem !important;
+  color: rgb(var(--v-theme-linkText)) !important;
+  padding-bottom: 0 !important;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Default text color (dark gray/black) override: use on links or elements inheriting a non-default color */
+.default-text-color {
+  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+}
+
+/* Small-caps variant used for abbreviation spans rendered from CMS content */
+.smcaps {
+  font-variant: small-caps;
+}
+
+/* Register list: v-list styled as bulleted list */
+.register-list .v-list-item {
+  list-style-type: disc;
+  display: list-item;
+  margin-left: 1.25rem;
+  min-height: auto;
+}
+
+/* Tab menu: button grid for registers */
+.tab-menu .v-btn {
+  margin: 0.25rem;
+}
+
+/* TABLES (CMS-rendered HTML/markdown) */
+
+/* Full-width tables & table cell styling: apply to app's v-main to normalize tables */
+.markdown-table {
+  table {
+    width: 100%;
+  }
+
+  th, td {
+    padding-right: 0.625rem;
+    padding-bottom: 0.625rem;
+    font-size: 1rem;
+    vertical-align: top;
+    line-height: 1.5;
+    text-align: left;
+  }
+}
+
+/* Horizontally scrollable table wrapper for narrow screens */
+.table-scrollable {
+  width: 100%;
+  overflow-y: auto;
+  margin: 0 0 1em;
+}
+
+.table-scrollable::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.table-scrollable::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  border: 0.875rem solid #fff;
+  background-color: rgba(0, 0, 0, .3);
+}

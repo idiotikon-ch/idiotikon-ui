@@ -1,0 +1,66 @@
+@use './mixins.scss' as *;
+
+
+/* TYPOGRAPHY */
+
+/* Semantic typography overrides - preserve h3 sizing from pre-md3 */
+.text-h3 { @include text-h3(true); }
+.text-h4 { @include text-h4(true); }
+.text-h5 { @include text-h5(true); }
+.text-h6 { @include text-h6(true); }
+
+/* Section titles: structure content sections, can override focus-card defaults */
+
+/* Primary h4-sized section title */
+.section-title-h4,
+.v-card.focus-card .section-title-h4 {
+  @include text-h4(true);
+  padding-bottom: 1rem !important;
+  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  @include heading-inherit;
+}
+
+/* Secondary h5-sized section title */
+.section-title-h5,
+.v-card.focus-card .section-title-h5 {
+  @include text-h5(true);
+  padding-bottom: 1rem !important;
+  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  @include heading-inherit;
+}
+
+/* Tertiary h6-sized section title */
+.section-title-h6,
+.v-card.focus-card .section-title-h6 {
+  @include text-h6(true);
+  padding-bottom: 1rem !important;
+  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  @include heading-inherit;
+}
+
+/* Markdown content: normalize headings to match card typography */
+/* Each level has a distinct size; h1 capped at page title size (1.75rem) */
+.content-section-titles,
+.v-card.focus-card .content-section-titles {
+  @include content-headings;
+}
+
+/* Override all markdown content titles with text-h5 */
+.content-section-titles-h5,
+.v-card.focus-card .content-section-titles-h5 {
+  h1, h2, h3, h4, h5, h6 {
+    @include text-h5;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    letter-spacing: normal;
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  }
+}
+
+/* Custom titles above accordions: less padding with toggle wrapper */
+.accordion-title-h4,
+.v.card.focus-card .accordion-title-h4 {
+  @include text-h4(true);
+  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  padding-bottom: 0 !important;
+}

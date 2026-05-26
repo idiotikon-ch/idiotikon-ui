@@ -1,0 +1,210 @@
+@use './mixins.scss' as *;
+
+
+/* PREVIEW TILE */
+/* Cards with white borders and custom spacing, used as page preview in overviews */
+
+.v-card.preview-tile,
+.v-card.focus-card .v-card.preview-tile {
+  @include card-base;
+  padding: 1.25rem;
+}
+
+.v-card.preview-tile .v-card-title,
+.v-card.focus-card .v-card.preview-tile .v-card-title {
+  padding-bottom: 0.25rem;
+}
+
+.v-card.preview-tile .v-card-subtitle,
+.v-card.focus-card .v-card.preview-tile .v-card-subtitle {
+  padding-bottom: 0.5rem;
+}
+
+
+/* CONTENT TILE */
+
+.v-card.content-tile,
+.v-card.focus-card .v-card.content-tile {
+  @include card-base;
+
+  .v-card-title,
+  .v-card-subtitle,
+  .v-card-text,
+  .v-card-actions {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* apply to text part below the image */
+  .content-tile-body {
+    padding: 1rem;
+  }
+}
+
+.v-card.content-tile .v-card-title,
+.v-card.focus-card .v-card.content-tile .v-card-title {
+  padding-bottom: 0.5rem;
+}
+
+/* prevent image from flexing */
+.content-tile .v-img {
+  flex: 0 0 auto;
+}
+
+
+/* TEASER */
+
+.v-card.teaser,
+.v-card.preview-tile.teaser,
+.v-card.focus-card .v-card.preview-tile.teaser {
+  padding: 1rem;
+}
+
+
+/* LINKED CARDS */
+/* Modifier styles for linked cards (with <a> wrapper) */
+
+/* No colored title by card's <a> wrapper */
+.v-card.teaser .v-card-title,
+.v-card.content-tile .v-card-title {
+  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+}
+
+/* Hover overlay: use neutral gray instead of inherited link color */
+.v-card.teaser .v-card__overlay,
+.v-card.content-tile .v-card__overlay {
+  background: black;
+}
+
+
+/* SIDEBAR CARDS */
+
+.v-card.sidebar {
+  @include card-base;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+}
+
+/* Sidebar-specific overrides */
+.v-card.sidebar .v-card-title {
+  font-weight: 500;
+}
+
+.v-card.sidebar .v-card-text {
+  padding-top: 0.8rem;
+}
+
+.v-card.sidebar .v-card-actions {
+  padding-top: 1rem;
+}
+
+.v-card.sidebar .v-img {
+  margin-top: 1.5rem;
+}
+
+
+/* FOCUS CARD */
+/* Main content card with normalized spacing and nested card support. */
+
+/* BASE */
+.v-card.focus-card {
+  @include card-base;
+  padding: 1.5rem;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* - TITLE & SUBTITLE */
+
+/* Main title: h3-sized, generous bottom spacing */
+.v-card.focus-card > .v-card-title,
+.v-card.focus-card .v-card-title:first-of-type {
+  @include text-h3;
+  padding-bottom: 2rem;
+}
+
+/* Main subtitle */
+.v-card.focus-card > .v-card-subtitle,
+.v-card.focus-card .v-card-subtitle:first-of-type {
+  padding-bottom: 2rem;
+  hyphens: none;
+}
+
+
+/* - NESTED CARDS */
+
+/* Direct child cards: bottom-only margin */
+.v-card.focus-card > .v-card {
+  margin-bottom: 1.5rem;
+  overflow: visible;
+}
+
+/* Remove bottom margin from last nested card */
+.v-card.focus-card > .v-card:last-child,
+.v-card.focus-card > .v-card:not(:has(~ .v-card)) {
+  margin-bottom: 0;
+}
+
+/* Nested card titles: h5-sized, medium weight */
+.v-card.focus-card .v-card .v-card-title {
+  @include text-h5;
+  letter-spacing: 0.0125em;
+  padding-bottom: 0.375rem;
+}
+
+.v-card.focus-card .v-card .v-card-subtitle {
+  font-size: 1rem;
+}
+
+/* - LISTS */
+
+/* Cards inside list - remove all margins but add vertical spacing */
+.v-card.focus-card > .v-list .v-card {
+  margin-bottom: 1rem;
+}
+
+.v-card.focus-card > .v-list .v-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Clickable cards in list: pointer + hover shadow */
+.v-card.focus-card > .v-list .v-card[link],
+.v-card.focus-card > .v-list .v-card.v-card--link {
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.v-card.focus-card > .v-list .v-card[link]:hover,
+.v-card.focus-card > .v-list .v-card.v-card--link:hover {
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.v-card.focus-card .v-list-item {
+  padding: 0;
+  padding-bottom: 1rem;
+}
+
+/* - BUTTONS & ACTIONS */
+
+/* Direct v-btn: pinned to bottom with space below content (flagship pattern) */
+.v-card.focus-card > .v-btn {
+  align-self: flex-start;
+  margin-top: 1.5rem;
+  flex-shrink: 0;
+  color: rgb(var(--v-theme-linkText));
+}
+
+/* No top margin when button is first child or marked .top-btn */
+.v-btn.top-btn,
+.v-card.focus-card .v-btn.top-btn,
+.v-card.focus-card > .v-btn:first-child {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.v-card.focus-card > .v-card-actions .v-btn {
+  margin: 0;
+  padding-left: 0;
+}
