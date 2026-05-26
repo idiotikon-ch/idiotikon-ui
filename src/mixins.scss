@@ -1,3 +1,6 @@
+ @use 'sass:map';
+ @use 'vuetify/settings' as vuetify;
+
 /* MIXINS */
 
 /* Content link style used across all card variants */
@@ -113,6 +116,27 @@
   }
 }
 
+/* Apply to img tags to constrain markdown-rendered images: */
+/* full width on small screens, natural size capped on large */
+@mixin normalized-img {
+  max-width: 100%;
+  @media #{map.get(vuetify.$display-breakpoints, 'sm-and-down')} {
+    width: 100% !important;
+  }
+}
+
+@mixin normalized-list {
+  ul, ol {
+    padding-inline-start: 0;
+    margin-left: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  ul li p {
+    padding-bottom: 0 !important;
+  }
+}
+
 /* Shared base styles for all card variants (preview-tile, sidebar, focus-card) */
 @mixin card-base {
   /* Child element padding reset */
@@ -159,10 +183,21 @@
     @include content-link;
   }
 
+  /* Normalize markdown headings h1-h6 */
+  @include content-headings;
+
+  /* Normalize all lists in content */
+  @include normalized-list;
+
   /* Content text color and size */
   .v-card-text {
     color: rgb(var(--v-theme-contentText));
     font-size: 1rem;
+
+    /* Normalize image width in markdown content */
+    img {
+     @include normalized-img;
+    }
   }
 
   /* Paragraph normalization */
@@ -172,18 +207,4 @@
     padding-bottom: 0.5rem;
     line-height: 1.5rem;
   }
-
-  /* List normalization (CMS/markdown rendered lists) */
-  ul, ol {
-    padding-inline-start: 0;
-    margin-left: 1.25rem;
-    margin-bottom: 0.75rem;
-  }
-
-  ul li p {
-    padding-bottom: 0 !important;
-  }
-
-  /* Normalize markdown headings h1-h6 */
-  @include content-headings;
 }

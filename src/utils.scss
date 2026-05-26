@@ -47,11 +47,12 @@
 }
 
 /* Register list: space left and in between items for readability */
-.list-flush .v-list,
-.v-card.focus-card .list-flush .v-list,
-.v-card.focus-card .list-flush ul {
-  margin-left: 0;
-  margin-right: 0;
+.list-flush,
+.v-card.focus-card .list-flush {
+  ul, ol, .v-list {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .register-list-items,
@@ -114,4 +115,14 @@
   border-radius: 0.5rem;
   border: 0.875rem solid #fff;
   background-color: rgba(0, 0, 0, .3);
+}
+
+/* Normalize headings & image width in markdown content */
+/* todo: expand once idi cms is more structured */
+.cms-content,
+.v-card.focus-card .cms-content {
+  @include content-headings;
+  img {
+    @include normalized-img;
+  }
 }

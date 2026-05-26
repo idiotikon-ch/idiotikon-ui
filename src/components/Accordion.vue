@@ -26,7 +26,7 @@
           <span v-if="item.subtitle" class="subtitle">{{ item.subtitle }}</span>
         </v-expansion-panel-title>
         
-        <v-expansion-panel-text :id="'panel-content-' + i">
+        <v-expansion-panel-text :id="'panel-content-' + i" class="cms-content">
           <!-- Primary slot pattern - apps control rendering -->
           <slot :name="`panel-${i}`" :item="item" :index="i">
             <!-- Fallback: render item.content if it's a string -->
