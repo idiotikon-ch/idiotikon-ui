@@ -1,5 +1,6 @@
 <template>
   <v-navigation-drawer
+    v-if="!disabled"
     :width="width"
     :model-value="modelValue"
     :temporary="temporary"
@@ -27,6 +28,10 @@ defineProps({
   items: {
     type: Array,
     default: () => []
+  },
+  disabled: {
+    type: Boolean,
+    default: false
   },
   modelValue: {
     type: Boolean,
