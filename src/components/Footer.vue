@@ -128,21 +128,13 @@ const hasFourthSlot = computed(() => !!slots.column4)
 
 const defaultSocialLinks = computed(() => {
   const links = [
+    { url: 'https://bsky.app/profile/ch-idiotikon.bsky.social', label: 'Bluesky', icon: 'bluesky' },
     { url: 'https://www.facebook.com/Idiotikon/', label: 'Facebook', icon: mdiFacebook },
     { url: 'https://www.instagram.com/ch_idiotikon/', label: 'Instagram', icon: mdiInstagram },
     { url: 'https://www.linkedin.com/company/schweizerisches-idiotikon', label: 'LinkedIn', icon: mdiLinkedin },
     { url: 'https://swiss.social/@CH_Idiotikon', label: 'Mastodon', icon: mdiMastodon }
   ]
-  
-  // Add Bluesky with image if logo provided
-  if (props.blueskyLogo) {
-    links.unshift({
-      url: 'https://bsky.app/profile/ch-idiotikon.bsky.social',
-      label: 'Bluesky',
-      imgSrc: props.blueskyLogo
-    })
-  }
-  
+
   return links
 })
 </script>
