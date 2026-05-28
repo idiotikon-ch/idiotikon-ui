@@ -10,8 +10,11 @@ This guide covers releasing new versions of `@idiotikon/ui`.
    ```
 
 2. Set up NPM token in GitHub (one-time):
-   - Go to https://www.npmjs.com/settings/~/tokens
-   - Create a new Automation token
+   - Go to https://www.npmjs.com/settings/~/tokens/new
+   - Select **"Granular access token"**
+   - Permissions needed: **"Publish packages and write package settings"** for `@idiotikon` scope
+   - **Expiration:** Set to **90 days maximum** (default is only 7 days—change this!)
+   - Generate the token, copy it
    - In your GitHub repo: Settings → Secrets and Variables → New repository secret
    - Name: `NPM_TOKEN`, Value: paste the token
 
