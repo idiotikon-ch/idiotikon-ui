@@ -20,7 +20,7 @@
     <!-- Plain image mode -->
     <v-img v-else-if="imageUrl" :src="imageUrl" cover class="tile-image" />
 
-    <v-card-text v-if="content || $slots.content" class="tile-body text-body-large">
+    <v-card-text v-if="content || $slots.content" class="tile-body text-body-large cms-content">
       <slot name="content">
         <div v-html="content" />
       </slot>

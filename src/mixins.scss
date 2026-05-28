@@ -181,23 +181,15 @@
   /* Content links: underlined, primary color */
   p a,
   .v-card-text a,
-  .content-section a {
+  .content-section a,
+  .cms-content a {
     @include content-link;
   }
-
-  /* Normalize markdown headings h1-h6 */
-  @include content-headings;
-
-  /* Normalize all lists in content */
-  @include normalized-list;
 
   /* Content text color and size */
   .v-card-text {
     color: rgb(var(--v-theme-contentText));
     font-size: 1rem;
-
-    /* Normalize image width in markdown content */
-    @include normalized-img;
   }
 
   /* Paragraph normalization */

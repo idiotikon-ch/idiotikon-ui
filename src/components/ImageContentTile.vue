@@ -4,7 +4,7 @@
     <slot name="image">
       <v-img v-if="imageUrl" :src="imageUrl" cover :height="imageHeight" />
     </slot>
-    <div class="d-flex flex-column flex-grow-1 content-tile-body">
+    <div class="d-flex flex-column flex-grow-1 content-tile-body cms-content">
       <v-card-item>
         <slot name="title">
           <v-card-title v-if="title" class="text-wrap" :class="titleClass">

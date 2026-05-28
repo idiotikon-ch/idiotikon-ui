@@ -9,7 +9,7 @@
             opacity: isActive(isHovering) ? 0.8 : 1,
           }">
           <div class="text-center text-h5 font-weight-bold" v-html="title" />
-          <div v-if="content" class="text-body-medium mt-2" :style="{ opacity: isActive(isHovering) ? 1 : 0 }" v-html="content" />
+          <div v-if="content" class="text-body-medium mt-2 cms-content" :style="{ opacity: isActive(isHovering) ? 1 : 0 }" v-html="content" />
           <div v-if="actionText" class="text-body-medium font-weight-bold mt-auto mb-2" v-html="actionText" />
         </div>
       </v-img>

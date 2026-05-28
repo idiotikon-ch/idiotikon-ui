@@ -3,6 +3,15 @@
 
 /* UTILITY CLASSES */
 
+/* Use this class for every markdown-rendered section for the idi defaults */
+/* Normalize headings, list indentation, and image width in markdown content */
+.cms-content,
+.v-card.focus-card .cms-content {
+  @include content-headings;
+  @include normalized-img;
+  @include normalized-list;
+}
+
 /* TODO: readmore color & linkstyle for titles still needed when buttons & cards get <a> via :to? */
 
 /* "Read more" button style */
@@ -46,6 +55,14 @@
   font-variant: small-caps;
 }
 
+/* LISTS */
+
+/* normalized indentation & spacing */
+.normalized-list,
+.v-card.focus-card .normalized-list {
+  @include normalized-list;
+}
+
 /* Register list: space left and in between items for readability */
 .list-flush,
 .v-card.focus-card .list-flush {
@@ -66,13 +83,6 @@
     line-height: 2rem;
     margin-bottom: 0.5rem;
   }
-}
-
-/* style v-list as unordered list with bullet points */
-.register-list-bullets .v-list-item {
-  list-style-type: disc;
-  display: list-item;
-  margin-left: 1.25rem;
 }
 
 /* Tab menu: button grid for registers */
@@ -115,12 +125,4 @@
   border-radius: 0.5rem;
   border: 0.875rem solid #fff;
   background-color: rgba(0, 0, 0, .3);
-}
-
-/* Normalize headings & image width in markdown content */
-/* todo: expand once idi cms is more structured */
-.cms-content,
-.v-card.focus-card .cms-content {
-  @include content-headings;
-  @include normalized-img;
 }

@@ -28,7 +28,7 @@
     <v-card-title>{{ title }}</v-card-title>
     <v-card-subtitle v-if="date">{{ date }}</v-card-subtitle>
     <v-img v-if="imgUrl" :src="imgUrl" cover />
-    <v-card-text v-if="teaserText">
+    <v-card-text v-if="teaserText" class="cms-content">
       <div v-html="teaserText"></div>
     </v-card-text>
     <v-card-actions v-if="readMoreText">

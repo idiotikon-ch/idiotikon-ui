@@ -12,7 +12,7 @@
 
   <v-row>
     <v-col :cols="imgUrl ? 12 : 12" :sm="imgUrl ? 6 : 12" :md="imgUrl ? 8 : 12">
-      <v-card-text>
+      <v-card-text class="cms-content">
         <slot name="content" />
       </v-card-text>
     </v-col>

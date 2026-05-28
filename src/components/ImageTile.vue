@@ -11,7 +11,7 @@
     </v-hover>
 
     <!-- Optional caption -->
-    <div v-if="caption || image.caption" class="image-tile-caption text-center text-caption text-grey-darken-1 mt-2">
+    <div v-if="caption || image.caption" class="image-tile-caption text-center text-caption text-grey-darken-1 mt-2 cms-content">
       {{ caption || image.caption }}
     </div>
 
