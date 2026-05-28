@@ -2,23 +2,7 @@
 
 A unified UI package providing Vuetify styling, configuration, and reusable components for Idiotikon applications.
 
-## Philosophy
-
-This package follows a **"bare Vuetify first"** approach:
-
-1. **Start Pure**: Components use gold-standard Vuetify structure with zero custom styling
-2. **Build Up Incrementally**: Only add styling when there's a clear, cross-app need
-3. **No Framework Lock-in**: Components are Vue 3 + Vuetify 4 only - no Nuxt, no Strapi dependencies
-4. **Proper Vuetify Patterns**: Use Vuetify's intended component structure, props, and utilities instead of fighting the framework
-
-### Anti-Patterns We Avoid
-
-- ❌ Inline styles (`style="..."`) → Use Vuetify utility classes or props
-- ❌ Hardcoded defaults that should be consumer-controlled
-- ❌ Custom CSS classes when Vuetify utilities exist
-- ❌ `!important` in stylesheets
-- ❌ Framework-specific imports (Nuxt, Strapi) in UI components  
-- ❌ Destructive global resets that break Vuetify defaults
+**Note:** This package is intended for internal use by Idiotikon projects. See [.instructions.md](.instructions.md) for development philosophy.
 
 ## Package Contents
 
@@ -48,29 +32,34 @@ const vuetify = createIdiotikonVuetify({
 
 ### Components
 
-All components are generic, framework-agnostic Vue 3 + Vuetify components:
+#### Layout
+- **`<IdiContainer>`** — Vuetify container wrapper with consistent spacing and styling
 
-- `<CurtainTile>` - Hover-activated image tile with sliding content
-- `<SearchField>` - Search input with icon and submit
-- `<Announcement>` - News/announcement card with detail and teaser modes
-- `<NavDrawer>` - Navigation drawer with nested menu support
-- `<NavItems>` - Recursive navigation list items
+#### Navigation
+- **`<NavDrawer>`** — Navigation sidebar with collapsible menu items
+- **`<NavItems>`** — Recursive navigation list; pass `items` array for nested menus
+- **`<ScrollToTop>`** — Floating button that scrolls page to top on click
 
-## Development Workflow
+#### Content Cards
+- **`<CurtainTile>`** — Image tile with sliding content overlay on hover/active state
+  - Props: `imgUrl`, `title`, `content`, `actionText`, `gradient`, `active`
+- **`<GeneralTile>`** — Generic content card for text/media
+- **`<ImageTile>`** — Image card with optional caption
+- **`<Announcement>`** — News/announcement card with expandable detail
+- **`<FocusCard>`** — Highlighted card with optional tabs for multi-section content
 
-When lifting components from app-specific code:
+#### Forms & Input
+- **`<SearchField>`** — Search input with icon, debounce, and submit callback
+  - Props: `modelValue`, `placeholder`, `clearable`, `autofocus`, `bgColor`, `variant`, `density`
 
-1. **Identify**: Find Vuetify anti-patterns and custom styling
-2. **Strip**: Remove all custom styling and framework dependencies
-3. **Abstract**: Replace app-specific logic with props and events
-4. **Pure Vuetify**: Use only Vuetify components, props, and utility classes
-5. **Test**: Verify it works with Vuetify defaults
-6. **Style**: Only then, add back minimal, cross-app styling if needed
+#### Organization
+- **`<Accordion>`** — Collapsible panel group for organizing content
+  - Props: `items` (array of `{ title, subtitle, content, icon, customClass }`)
+- **`<ContactInfo>`** — Display contact details (email, phone, address)
+- **`<Footer>`** — Idiotikon org footer with links and branding
+- **`<SocialLinks>`** — Social media icon links
+- **`<ImageViewer>`** — Lightbox/modal for viewing images in detail
 
-## Styling
+## Configuration
 
-### Card Variants
-
-#### `.focus`
-* text left flush with title (achieved with reset & manual restyling)
-* font sizes: h3 for title, h5 for nested focus cards
+See [.instructions.md](.instructions.md) for development philosophy and coding guidelines.
