@@ -122,7 +122,5 @@
 .cms-content,
 .v-card.focus-card .cms-content {
   @include content-headings;
-  img {
-    @include normalized-img;
-  }
+  @include normalized-img;
 }
