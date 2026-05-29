@@ -1,0 +1,23 @@
+# Idiotikon Internal Use License
+
+Copyright (c) 2026 Idiotikon
+
+## Permission
+
+This software is provided for internal use by Idiotikon projects and authorized members only.
+
+## Restrictions
+
+You may NOT:
+- Use this software in any commercial product or service outside of Idiotikon
+- Modify and redistribute this software
+- Use this software as a basis for derivative works intended for public distribution
+- Sublicense or transfer rights to third parties
+
+## Internal Use Only
+
+This package is published to npm solely for convenient installation within Idiotikon-affiliated projects. Public availability does not grant broader usage rights.
+
+## Disclaimer
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.

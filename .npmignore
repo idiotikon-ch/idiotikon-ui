@@ -1,0 +1,11 @@
+src/
+tsconfig.json
+debug-compare.html
+curtain_commit.txt
+todo.md
+prompts.md
+.git
+.gitignore
+node_modules/
+*.log
+.DS_Store
