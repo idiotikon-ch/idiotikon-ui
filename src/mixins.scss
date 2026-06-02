@@ -9,6 +9,11 @@
   color: rgb(var(--v-theme-linkText));
 }
 
+/* No hyphenation */
+@mixin no-hyphens {
+  hyphens: none !important;
+}
+
 /* Typography mixins — pass true for !important (Vuetify overrides, section titles) */
 @mixin text-h3($important: false) {
   @if $important {
@@ -162,6 +167,11 @@
   .v-card-title,
   .v-card-title p {
     color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+  }
+
+  /* No title hyphenation */
+  .v-card-title {
+    @include no-hyphens;
   }
 
   /* Title links: no underline */

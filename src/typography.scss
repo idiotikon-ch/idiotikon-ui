@@ -14,7 +14,7 @@
 
 /* Hyphenation override */
 .no-hyphens {
-  hyphens: none !important;
+  @include no-hyphens;
 }
 
 /* Section titles: structure content sections, can override focus-card defaults */
