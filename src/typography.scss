@@ -9,6 +9,9 @@
 .text-h5 { @include text-h5(true); }
 .text-h6 { @include text-h6(true); }
 
+/* Bold font-weight override */
+.text-bold { font-weight: 700; }
+
 /* Section titles: structure content sections, can override focus-card defaults */
 
 /* Primary h4-sized section title */
