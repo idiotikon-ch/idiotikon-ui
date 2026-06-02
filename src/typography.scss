@@ -12,11 +12,6 @@
 /* Bold font-weight override */
 .text-bold { font-weight: 700; }
 
-/* Wrap at spaces and only split words when too long to fit on a line */
-.title-wrap {
-  @include title-wrap;
-}
-
 /* Hyphenation override */
 .manual-hyphens {
   @include manual-hyphens;
