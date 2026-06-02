@@ -10,7 +10,9 @@
 .text-h6 { @include text-h6(true); }
 
 /* Bold font-weight override */
-.text-bold { font-weight: 700; }
+.text-bold {
+  font-weight: 700 !important;
+}
 
 /* Hyphenation override */
 .manual-hyphens {
