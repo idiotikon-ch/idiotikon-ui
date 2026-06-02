@@ -10,8 +10,8 @@
 }
 
 /* No hyphenation */
-@mixin no-hyphens {
-  hyphens: none !important;
+@mixin manual-hyphens {
+  hyphens: manual !important;
 }
 
 /* Typography mixins — pass true for !important (Vuetify overrides, section titles) */
@@ -169,9 +169,9 @@
     color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
   }
 
-  /* No title hyphenation */
+  /* No title hyphenation; only manual soft hyphens */
   .v-card-title {
-    @include no-hyphens;
+    @include manual-hyphens;
   }
 
   /* Title links: no underline */

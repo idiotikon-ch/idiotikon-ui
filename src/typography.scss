@@ -12,9 +12,14 @@
 /* Bold font-weight override */
 .text-bold { font-weight: 700; }
 
+/* Wrap at spaces and only split words when too long to fit on a line */
+.title-wrap {
+  @include title-wrap;
+}
+
 /* Hyphenation override */
-.no-hyphens {
-  @include no-hyphens;
+.manual-hyphens {
+  @include manual-hyphens;
 }
 
 /* Section titles: structure content sections, can override focus-card defaults */
