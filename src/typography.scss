@@ -12,6 +12,11 @@
 /* Bold font-weight override */
 .text-bold { font-weight: 700; }
 
+/* Hyphenation override */
+.no-hyphens {
+  hyphens: none !important;
+}
+
 /* Section titles: structure content sections, can override focus-card defaults */
 
 /* Primary h4-sized section title */
