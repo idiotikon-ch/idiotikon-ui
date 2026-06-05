@@ -87,7 +87,8 @@
 
 /* Sidebar-specific overrides */
 .v-card.sidebar .v-card-title {
-  font-weight: 500;
+  @include text-h5;
+  padding-bottom: 0.8rem;
 }
 
 .v-card.sidebar .v-card-text {
