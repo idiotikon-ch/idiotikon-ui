@@ -87,19 +87,24 @@
 
 /* Sidebar-specific overrides */
 .v-card.sidebar .v-card-title {
-  font-weight: 500;
+  @include text-h5;
 }
 
 .v-card.sidebar .v-card-text {
-  padding-top: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* override padding of CMS-rendered paragraphs */
+.v-card.sidebar .v-card-text p:last-of-type {
+  padding-bottom: 0;
 }
 
 .v-card.sidebar .v-card-actions {
   padding-top: 1rem;
 }
 
-.v-card.sidebar .v-img {
-  margin-top: 1.5rem;
+.v-card.sidebar .tile-image {
+  margin-top: 1rem;
 }
 
 

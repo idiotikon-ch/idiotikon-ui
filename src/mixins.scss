@@ -135,8 +135,8 @@
 @mixin normalized-list {
   ul, ol {
     padding-inline-start: 0;
+    margin: 0;
     margin-left: 1.25rem;
-    margin-bottom: 0.75rem;
   }
 
   ul li p {
@@ -208,5 +208,11 @@
     margin: 0;
     padding-bottom: 0.5rem;
     line-height: 1.5rem;
+  }
+
+  /* Cms-rendered titles/subtitles don't need paragraph padding */
+  .v-card-title p,
+  .v-card-subtitle p {
+    padding: 0;
   }
 }

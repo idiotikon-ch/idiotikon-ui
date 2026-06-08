@@ -15,7 +15,7 @@
     </v-card-title>
 
     <!-- Image viewer mode: clicking image opens fullscreen -->
-    <ImageTile v-if="imageUrl && imageViewer" :image="{ src: imageUrl }" />
+    <ImageTile v-if="imageUrl && imageViewer" :image="{ src: imageUrl }" class="tile-image" />
 
     <!-- Plain image mode -->
     <v-img v-else-if="imageUrl" :src="imageUrl" cover class="tile-image" />
@@ -95,13 +95,5 @@ export default {
 
 .general-tile:not(.v-card--hover) {
   cursor: default;
-}
-
-.tile-image {
-  /* Image sizing handled by v-img cover prop */
-}
-
-.tile-body {
-  /* Content area - apps can style via slots */
 }
 </style>
