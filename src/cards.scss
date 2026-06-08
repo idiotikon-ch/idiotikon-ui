@@ -90,21 +90,19 @@
   @include text-h5;
 }
 
-.v-card.sidebar .v-card-text {
+/* top spacing for sidebars texts, images, and actions */
+.v-card.sidebar .v-card-text,
+.v-card.sidebar .mt-tile-image {
   margin-top: 1rem;
-}
-
-/* override padding of CMS-rendered paragraphs */
-.v-card.sidebar .v-card-text p:last-of-type {
-  padding-bottom: 0;
 }
 
 .v-card.sidebar .v-card-actions {
   padding-top: 1rem;
 }
 
-.v-card.sidebar .tile-image {
-  margin-top: 1rem;
+/* override padding of CMS-rendered paragraphs */
+.v-card.sidebar .v-card-text p:last-of-type {
+  padding-bottom: 0;
 }
 
 

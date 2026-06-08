@@ -15,10 +15,10 @@
     </v-card-title>
 
     <!-- Image viewer mode: clicking image opens fullscreen -->
-    <ImageTile v-if="imageUrl && imageViewer" :image="{ src: imageUrl }" class="tile-image" />
+    <ImageTile v-if="imageUrl && imageViewer" :image="{ src: imageUrl }" class="mt-tile-image" />
 
     <!-- Plain image mode -->
-    <v-img v-else-if="imageUrl" :src="imageUrl" cover class="tile-image" />
+    <v-img v-else-if="imageUrl" :src="imageUrl" cover class="mt-tile-image" />
 
     <v-card-text v-if="content || $slots.content" class="tile-body text-body-large cms-content">
       <slot name="content">
