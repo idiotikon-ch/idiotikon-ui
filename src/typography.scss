@@ -78,7 +78,6 @@
 
 /* Custom title for tiles: smaller; more space between title & subtitle */
 .tile-title,
-.v-card.focus-card .tile-subtitle,
 .v-card.focus-card .tile-title {
   @include text-h6(true);
   padding-bottom: 1rem !important;
