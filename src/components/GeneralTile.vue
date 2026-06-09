@@ -1,10 +1,12 @@
 <template>
-  <v-card 
+  <v-card
     :class="['general-tile', tileClass]"
-    :href="isClickable ? link : undefined"
-    :target="linkTarget !== '_self' ? linkTarget : undefined"
+    :to="to"
+    :href="href"
+    :target="target"
     :hover="isClickable"
     :ripple="isClickable"
+    @click="handleClick"
   >
     <v-card-title v-if="title || $slots.title" class="text-h5">
       <slot name="title">
@@ -13,7 +15,7 @@
     </v-card-title>
 
     <!-- Image viewer mode: clicking image opens fullscreen -->
-    <ImageTile v-if="imageUrl && imageViewer" :image="{ src: imageUrl }" class="mt-tile-image" />
+    <ImageTile v-if="imageUrl && imageViewer" :image="{ src: imageUrl }" class="mt-tile-image" @click.stop="onImageClick" />
 
     <!-- Plain image mode -->
     <v-img v-else-if="imageUrl" :src="imageUrl" cover class="mt-tile-image" />
@@ -43,11 +45,15 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  link: {
+  to: {
     type: String,
-    default: ''
+    default: undefined
   },
-  linkTarget: {
+  href: {
+    type: String,
+    default: undefined
+  },
+  target: {
     type: String,
     default: '_self'
   },
@@ -58,13 +64,22 @@ const props = defineProps({
   imageViewer: {
     type: Boolean,
     default: false
+  },
+})
+
+const emit = defineEmits(['click', 'image-click'])
+
+const isClickable = computed(() => !!(props.to || props.href) && !props.imageViewer)
+
+function handleClick() {
+  if (isClickable.value) {
+    emit('click', props.to ?? props.href, props.target)
   }
-})
+}
 
-const isClickable = computed(() => {
-  return !!props.link && props.linkTarget !== 'image'
-})
-
+function onImageClick(e: MouseEvent) {
+  emit('image-click', e)
+}
 </script>
 
 <script lang="ts">
