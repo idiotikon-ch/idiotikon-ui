@@ -61,23 +61,10 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits<{
-  click: [link: string, target: string]
-}>()
-
 const isClickable = computed(() => {
   return !!props.link && props.linkTarget !== 'image'
 })
 
-const isInternalLink = computed(() => {
-  return isClickable.value && props.link.startsWith('/') && props.linkTarget !== '_blank'
-})
-
-function handleClick() {
-  if (isClickable.value) {
-    emit('click', props.link, props.linkTarget)
-  }
-}
 </script>
 
 <script lang="ts">
