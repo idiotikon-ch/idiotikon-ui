@@ -70,10 +70,9 @@
   color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
 }
 
-/* Hover overlay: use neutral gray instead of inherited link color */
-.v-card.teaser .v-card__overlay,
-.v-card.content-tile .v-card__overlay {
-  background: black;
+/* Card color override */
+.link-color a.v-card {
+  color: black !important;
 }
 
 

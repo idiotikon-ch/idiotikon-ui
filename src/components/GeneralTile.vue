@@ -2,11 +2,9 @@
   <v-card 
     :class="['general-tile', tileClass]"
     :href="isClickable ? link : undefined"
-    :to="isInternalLink ? link : undefined"
     :target="linkTarget !== '_self' ? linkTarget : undefined"
     :hover="isClickable"
     :ripple="isClickable"
-    @click="handleClick"
   >
     <v-card-title v-if="title || $slots.title" class="text-h5">
       <slot name="title">
