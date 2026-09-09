@@ -3,9 +3,9 @@
     <v-hover v-slot="{ isHovering, props: hoverProps }">
       <v-card v-bind="hoverProps" class="image-tile-card" @click="handleClick">
         <v-img :src="image.src" :alt="image.alt || image.title || ''" cover :aspect-ratio="aspectRatio">
-          <!-- Magnify button on hover -->
-          <v-btn v-show="isHovering" :icon="mdiMagnifyScan" color="black" variant="flat" class="magnify-btn"
-            :style="{ opacity: 0.6 }" />
+          <!-- Magnify button on hover (only when the tile opens the viewer) -->
+          <v-btn v-show="isHovering && !disableViewer" :icon="mdiMagnifyScan" color="black" variant="flat"
+            class="magnify-btn" :style="{ opacity: 0.6 }" />
         </v-img>
       </v-card>
     </v-hover>
