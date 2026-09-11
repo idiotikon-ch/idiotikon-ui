@@ -1,7 +1,6 @@
 import { createVuetify, ThemeDefinition } from 'vuetify'
 import { defaults } from './defaults'
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
-import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 // import { md1, md2, md3 } from 'vuetify/blueprints'
 
@@ -28,7 +27,6 @@ export function createIdiotikonVuetify(
     },
     ssr,
     defaults,
-    components,
     directives,
   })
 }
