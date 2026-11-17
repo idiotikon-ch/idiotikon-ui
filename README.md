@@ -17,6 +17,25 @@ const vuetify = createIdiotikonVuetify({
 }, ssr)
 ```
 
+### Translations
+
+Component strings (footer headings, "Weiterlesen", "Nach oben", …) are built in for `de`, `fr` and `en` and resolved through Vuetify's locale under `$vuetify.idi.*` (tables in `src/locale/`). Vuetify's own strings use the same locale; its German table is converted to Swiss orthography (ß → ss).
+
+```typescript
+const vuetify = createIdiotikonVuetify(themeConfig, ssr, {
+  locale: 'fr',    // default 'de'
+  fallback: 'de',  // default 'de'
+  messages: {
+    // replaces only this key; other French strings stay
+    fr: { idi: { footer: { donate: 'Faire un don' } } },
+  },
+})
+```
+
+Switch at runtime with `useLocale().current.value = 'en'`. Precedence: component prop > `messages` override > built-in string for the current locale > German. Languages without built-in strings fall back to the `fallback` language; Vuetify's tables are bundled for de, fr, en and it only, so pass others (from `vuetify/locale`) in `messages`.
+
+Apps using Vuetify's vue-i18n adapter can merge `idiotikonUiMessages[lang]` under `$vuetify.idi`, or use `createIdiotikonLocaleMessages(options)` to get the full per-language tables.
+
 ### Sass Variables & Styles
 
 ```scss

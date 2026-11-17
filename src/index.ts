@@ -1,4 +1,5 @@
 export { createIdiotikonVuetify } from './vuetify';
+export { idiotikonUiMessages, createIdiotikonLocaleMessages, useIdiTranslate } from './locale';
 export { default as CurtainTile } from './components/CurtainTile.vue';
 export { default as ImageContentTile } from './components/ImageContentTile.vue';
 export { default as SearchField } from './components/SearchField.vue';
@@ -20,3 +21,11 @@ export { default as ImageViewer } from './components/ImageViewer.vue';
 // Type exports
 export type { AccordionItem } from './components/Accordion.vue';
 export type { ImageViewerImage } from './components/ImageViewer.vue';
+export type {
+  IdiMessages,
+  IdiMessageKey,
+  IdiLanguage,
+  IdiLocaleOverride,
+  IdiotikonLocaleOptions,
+  DeepPartial,
+} from './locale';

@@ -6,7 +6,7 @@
     <v-card class="preview-tile teaser share-card">
       <v-card-title>
         <v-row no-gutters align="center">
-          <v-col class="text-wrap" align-self="center"><v-icon :icon="mdiLink" /> {{ title }}</v-col>
+          <v-col class="text-wrap" align-self="center"><v-icon :icon="mdiLink" /> {{ titleText }}</v-col>
           <v-col cols="auto">
             <v-btn variant="plain" @click="overlay = false" :icon="mdiClose" />
           </v-col>
@@ -57,6 +57,7 @@ import {
   mdiMastodon,
   mdiFileCheckOutline,
 } from '@mdi/js'
+import { useIdiTranslate } from '../locale'
 
 const props = defineProps({
   /** Base URL of the app (e.g. 'https://example.com') */
@@ -64,12 +65,15 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  /** Dialog title */
+  /** Dialog title; defaults to the translation of `idi.shareBtn.title` */
   title: {
     type: String,
-    default: 'Permalink/URI teilen'
+    default: undefined
   }
 })
+
+const t = useIdiTranslate()
+const titleText = computed(() => props.title ?? t('shareBtn.title'))
 
 const route = useRoute()
 const overlay = ref(false)

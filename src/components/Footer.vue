@@ -7,7 +7,7 @@
           <!-- 2x2 Grid layout when slot4 exists -->
           <v-col cols="12" sm="6" class="mb-4 footer-content">
             <slot name="address">
-              <p class="header">Adresse</p>
+              <p class="header">{{ t('footer.address') }}</p>
               <ContactInfo
                 address="Schweizerisches Idiotikon\nAuf der Mauer 5\n8001 Zürich"
                 email="info@idiotikon.ch"
@@ -20,7 +20,7 @@
 
           <v-col cols="12" sm="6" class="mb-4 footer-content">
             <slot name="social">
-              <p class="header">Besuchen Sie uns auf Social Media</p>
+              <p class="header">{{ t('footer.socialMedia') }}</p>
               <SocialLinks :links="defaultSocialLinks" />
             </slot>
           </v-col>
@@ -29,10 +29,10 @@
         <v-row no-gutters v-if="hasFourthSlot" class="ma-0">
           <v-col cols="12" sm="6" class="mb-4 footer-content">
             <slot name="donations">
-              <p class="header">Spenden</p>
+              <p class="header">{{ t('footer.donate') }}</p>
               <p>
                 80-9590-5 (IBAN: CH06 0900 0000 8000 9590 5)<br>
-                <a href="https://idiotikon.ch/spenden">Spendenformular</a>
+                <a href="https://idiotikon.ch/spenden">{{ t('footer.donationForm') }}</a>
               </p>
             </slot>
           </v-col>
@@ -46,7 +46,7 @@
         <v-row no-gutters v-if="!hasFourthSlot" class="ma-0">
           <v-col cols="12" sm="6" class="mb-4 footer-content">
             <slot name="address">
-              <p class="header">Adresse</p>
+              <p class="header">{{ t('footer.address') }}</p>
               <ContactInfo
                 address="Schweizerisches Idiotikon\nAuf der Mauer 5\n8001 Zürich"
                 email="info@idiotikon.ch"
@@ -55,17 +55,17 @@
             </slot>
 
             <slot name="donations">
-              <p class="header">Spenden</p>
+              <p class="header">{{ t('footer.donate') }}</p>
               <p>
                 80-9590-5 (IBAN: CH06 0900 0000 8000 9590 5)<br>
-                <a href="https://idiotikon.ch/spenden">Spendenformular</a>
+                <a href="https://idiotikon.ch/spenden">{{ t('footer.donationForm') }}</a>
               </p>
             </slot>
           </v-col>
 
           <v-col cols="12" sm="6" class="mb-4 footer-content">
             <slot name="social">
-              <p class="header">Besuchen Sie uns auf Social Media</p>
+              <p class="header">{{ t('footer.socialMedia') }}</p>
               <SocialLinks :links="defaultSocialLinks" />
             </slot>
           </v-col>
@@ -96,6 +96,7 @@ import { computed, useSlots } from 'vue'
 import ContactInfo from './ContactInfo.vue'
 import SocialLinks from './SocialLinks.vue'
 import { mdiFacebook, mdiInstagram, mdiLinkedin, mdiMastodon } from '@mdi/js'
+import { useIdiTranslate } from '../locale'
 
 const props = defineProps({
   maxWidth: {
@@ -123,6 +124,7 @@ const props = defineProps({
 })
 
 const slots = useSlots()
+const t = useIdiTranslate()
 const currentYear = computed(() => new Date().getFullYear())
 const hasFourthSlot = computed(() => !!slots.column4)
 

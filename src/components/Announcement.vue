@@ -2,7 +2,7 @@
   <!-- Detail View: FocusCard -->
   <FocusCard v-if="!teaserOnly && detailView">
     <v-btn v-if="backLink" @click="$emit('back')" class="top-btn">
-      {{ backText }}
+      {{ backLabel }}
     </v-btn>
     <AnnouncementBody :title-class="'text-h3'" v-bind="sharedProps">
       <template #content><slot name="content"><div v-html="content" /></slot></template>
@@ -31,8 +31,8 @@
     <v-card-text v-if="teaserText" class="cms-content">
       <div v-html="teaserText"></div>
     </v-card-text>
-    <v-card-actions v-if="readMoreText">
-      <span class="link-style">{{ readMoreText }}</span>
+    <v-card-actions v-if="readMoreLabel">
+      <span class="link-style">{{ readMoreLabel }}</span>
     </v-card-actions>
   </v-card>
 </template>
@@ -41,6 +41,7 @@
 import { computed } from 'vue'
 import FocusCard from './FocusCard.vue'
 import AnnouncementBody from './AnnouncementBody.vue'
+import { useIdiTranslate } from '../locale'
 
 const props = defineProps({
   title: {
@@ -79,17 +80,19 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  /** Back button label; defaults to the translation of `idi.announcement.back` */
   backText: {
     type: String,
-    default: 'Zurück zur Übersicht'
+    default: undefined
   },
   titleLink: {
     type: Boolean,
     default: true
   },
+  /** Teaser link label; defaults to the translation of `idi.announcement.readMore`. Pass '' to hide it. */
   readMoreText: {
     type: String,
-    default: 'Weiterlesen'
+    default: undefined
   }
 })
 
@@ -98,6 +101,10 @@ const emit = defineEmits<{
   back: []
   'title-click': [url: string]
 }>()
+
+const t = useIdiTranslate()
+const backLabel = computed(() => props.backText ?? t('announcement.back'))
+const readMoreLabel = computed(() => props.readMoreText ?? t('announcement.readMore'))
 
 // Check if URL is internal (starts with /)
 const isInternalUrl = computed(() => {

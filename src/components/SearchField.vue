@@ -2,7 +2,7 @@
   <v-form @submit.prevent="handleSearch">
     <v-text-field 
       v-model="internalQuery" 
-      :placeholder="placeholder" 
+      :placeholder="placeholderText" 
       :clearable="clearable"
       :append-inner-icon="searchIcon" 
       :bg-color="bgColor" 
@@ -17,15 +17,17 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { mdiMagnify } from '@mdi/js'
+import { useIdiTranslate } from '../locale'
 
 const props = defineProps({
   modelValue: {
     type: String,
     default: ''
   },
+  /** Defaults to the translation of `idi.searchField.placeholder` */
   placeholder: {
     type: String,
-    default: 'Suche'
+    default: undefined
   },
   searchIcon: {
     type: String,
@@ -51,6 +53,9 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['update:modelValue', 'search'])
+
+const t = useIdiTranslate()
+const placeholderText = computed(() => props.placeholder ?? t('searchField.placeholder'))
 
 const internalQuery = computed({
   get: () => props.modelValue,

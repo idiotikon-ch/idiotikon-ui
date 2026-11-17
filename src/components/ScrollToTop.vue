@@ -1,6 +1,6 @@
 <template>
   <v-tooltip :model-value="showTooltip" :location="tooltipLocation">
-    {{ tooltipText }}
+    {{ tooltipLabel }}
     <template #activator="{ props }">
       <v-btn v-show="visible" @click="scrollToTop" :icon="icon" v-bind="props" :density="density" :color="color"
         :style="buttonStyles" style="z-index: 1; position: fixed" />
@@ -11,6 +11,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { mdiChevronUp } from '@mdi/js'
+import { useIdiTranslate } from '../locale'
 
 const props = defineProps({
   /** Show button when scrolled this many pixels */
@@ -45,15 +46,19 @@ const props = defineProps({
     type: String as () => 'left' | 'right',
     default: 'right'
   },
+  /** Defaults to the translation of `idi.scrollToTop.tooltip` */
   tooltipText: {
     type: String,
-    default: 'Nach oben'
+    default: undefined
   },
   tooltipLocation: {
     type: String,
     default: 'left'
   }
 })
+
+const t = useIdiTranslate()
+const tooltipLabel = computed(() => props.tooltipText ?? t('scrollToTop.tooltip'))
 
 const visible = ref(false)
 const showTooltip = ref(false)
